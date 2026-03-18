@@ -85,7 +85,7 @@ Wait until you see the completion banner indicating the deployment has finished 
 
 ![2](../diagrams/2.png)
  
-Three independent single-node Kubernetes clusters are being provisioned using Kind, representing development, platform, and production environments. Each cluster operates with its own isolated control plane, allowing governance and workload behaviour to be demonstrated independently across environments.
+Three independent single-node Kubernetes clusters have been provisioned using Kind, representing development, platform, and production environments. Each cluster operates with its own isolated control plane, allowing governance and workload behaviour to be demonstrated independently across environments.
 
 Once completed, confirm K8S clusters exist
 
