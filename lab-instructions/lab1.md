@@ -42,16 +42,17 @@ icacls C:\Users\<YourUserName>\.ssh\my-keypair.pem /grant:r "$($env:USERNAME):(R
 
 </p>
 
+7. Provision the remote environment using Terraform
+<p>
 
-
-
-icacls C:\Users\<YourUserName>\.ssh\my-keypair.pem /inheritance:r
-icacls C:\Users\<YourUserName>\.ssh\my-keypair.pem /grant:r "$($env:USERNAME):(R)"
-Provision the remote environment using Terraform
-7.	Run the following commands…
+```bash
 cd c:\qa-opa-labs\k8s-opa\bootstrap
 terraform init
 terraform apply --auto-approve
+```
+
+</p>
+
 8.	Terraform will output the public IP of two virtual machines, a GitOps host running K8S, ArgoCD and AWX and an Automation host running Jenkins…
 
 
