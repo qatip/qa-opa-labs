@@ -83,9 +83,7 @@ sudo kind get clusters
 Expected:
 
 dev
-
 platform
-
 prod
 
 
