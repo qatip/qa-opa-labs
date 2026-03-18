@@ -58,7 +58,7 @@ terraform apply --auto-approve
 
 ## SSH to the GitOps Host and Verify Bootstrap
 
-9.	SSH from PowerShell (update YourUserName and gitops-public-ip with that shown in output for GitOps host):
+9.	SSH from PowerShell, updating YourUserName and gitops-public-ip with that shown in output for GitOps host:
 
 </p>
 
