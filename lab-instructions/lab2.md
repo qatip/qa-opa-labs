@@ -145,7 +145,7 @@ kubectl --context kind-dev get pods -n gatekeeper-system
 
 ![3](../diagrams/3.png)
 
-##Copy manifest files to gitop host
+## Copy manifest files to gitop host
 
 Without closing the existing ssh session, open a new IDE terminal session using Ctrl+Shift+'
 
