@@ -131,7 +131,7 @@ The base lab environment is now deployed, but without Kubernetes policy enforcem
 
 Focussing on the Development cluster, you will now compare Kubernetes behaviour before and after policy enforcement is introduced.
 
-First, a non-compliant workload will be deployed successfully, demonstrating that the cluster accepts resources without validation. After removing the workload, OPA Gatekeeper will be installed and a policy applied requiring mandatory labels.
+First, a non-compliant workload will be deployed successfully, demonstrating that the cluster accepts resources without validation by default. After removing the workload, OPA Gatekeeper will be installed and a policy applied requiring mandatory labelling of resources.
 
 When the same workload deployment attempt is made, it should be rejected by the cluster, demonstrating how OPA enforces governance at the admission level, preventing non-compliant resources from being created.
 
