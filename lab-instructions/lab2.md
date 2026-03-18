@@ -40,7 +40,27 @@ icacls C:\Users\YourUserName\.ssh\my-keypair.pem /grant:r "$($env:USERNAME):(R)"
 
 </p>
 
-Provision the remote environment using Terraform
+## 2. Accessing AWS using Cloud9/Visual Studio Code 
+
+THIS ENTIRE SECTION CAN BE SKIPPED IF YOU HAVE ALREADY COMPLETED LAB 1
+
+Note: If using Cloud9 as your IDE: 
+
+Cloud9 uses temporary credentials by default which do not have sufficient authorization to complete some upcoming steps. Navigate to Preferences, AWS Settings, Credentials and disable temporary credentials before following the instructions regarding 'aws configure'
+
+![C9-1](../diagrams/C9-1.png)
+![C9-2](../diagrams/C9-2.png)
+
+For All IDEs:
+
+Use “aws configure” to supply explicit credentials, providing the Access Key and Secret Access Key generated for your student account.
+Configure us-east-1 as your default region and leave default output format empty
+
+
+![C9-3](../diagrams/C9-3.png)
+
+
+OpProvision the remote environment using Terraform
 <p>
 
 ```bash
@@ -56,7 +76,7 @@ Terraform will output the public IPs (yours will differ from those shown) of two
 ![1](../diagrams/1.png)
 
 
-## 2. SSH to the GitOps Host and Verify the Bootstrap succeeds
+## 3. SSH to the GitOps Host and Verify the Bootstrap succeeds
 
 SSH to your gitops_host vm, either by copying the quoted command shown in your output or by using the command below, updating gitops-public-ip with that shown in your terraform output:
 
@@ -137,7 +157,7 @@ First, a non-compliant workload will be deployed successfully, demonstrating tha
 When the same workload deployment attempt is made, it should be rejected by the cluster, demonstrating how OPA enforces governance at the admission level, preventing non-compliant resources from being created.
 
 
-## 3. Copy Kubernetes manifest files to gitop host
+## 4. Copy Kubernetes manifest files to gitop host
 
 Without closing your existing ssh session, open a new IDE terminal session using Ctrl+Shift+'
 
@@ -157,7 +177,7 @@ scp -i ~/.ssh/my-keypair.pem *.yaml ubuntu@gitop-pubic-ip:/home/ubuntu/
 ![5](../diagrams/5.png)
 
 
-## 4. Test an Unvalidated deployment
+## 5. Test an Unvalidated deployment
 Switch back your SSH session terminal and then open bad.yaml
 
 </p>
@@ -209,7 +229,7 @@ kubectl --context kind-dev delete deployment bad-app
 </p>
 
 
-## 5. Deploy Gatekeeper
+## 6. Deploy Gatekeeper
 
 </p>
 
@@ -233,7 +253,7 @@ kubectl --context kind-dev get pods -n gatekeeper-system
 ![3](../diagrams/3.png)
 
 
-## 6. Constraint Template and Constraint Overview
+## 7. Constraint Template and Constraint Overview
 
 Gatekeeper enforces policy through two key components: Constraint Templates and Constraints.
 
@@ -268,7 +288,7 @@ kubectl --context kind-dev apply -f constraint.yaml
 </p>
 
 
-## 7. Testing OPA Gatekeeper
+## 8. Testing OPA Gatekeeper
 
 First you will apply a manifest that complies with governance requirements.
 
@@ -330,14 +350,14 @@ kubectl --context kind-dev delete deployment bad-app
 
 </p>
 
-## 8. Challenge. Modify and test the Gatekeeper template  
+## 9. Challenge. Modify and test the Gatekeeper template  
 
 The Governance Team has mandated that resource ownership must also be included as part of Deployment labelling. Your task is to update the Gateway template.yaml to include a check for this label. Redeploy the template and verify it by attempting to deploy good-app and bad-app again. Both should fail the new governance check given that they lack ownership labelling. Update the two deployments with ownership labelling so that they can be successfully deloyed. 
 
 Tidy up by deleting any deployed resources.
 
 
-## 9. Lab Teardown
+## 10. Lab Teardown
 
 To remove the lab infrastructure, switch to your local terminal session and run...
 
