@@ -11,9 +11,11 @@ Rather than manually building the kubernetes infrastructure, you will deploy a p
 
 <details><summary>show command</summary>
 <p>
+
 ```bash
 test
 ```
+
 </p>
 </details>
 
