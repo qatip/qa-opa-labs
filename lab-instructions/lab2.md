@@ -137,12 +137,9 @@ When the same workload is deployed again, it will be rejected by the cluster. Th
 
 
 
-
-
-
 ## Copy manifest files to gitop host
 
-Without closing the existing ssh session, open a new IDE terminal session using Ctrl+Shift+'
+Without closing your existing ssh session, open a new IDE terminal session using Ctrl+Shift+'
 
 Run the following, updating gitop-public-ip with your gitop host public ip
 
@@ -177,6 +174,7 @@ note that the manifest is lacking ownership and environment labels
 
 Use ctrl+x to exit nano
 
+Deploy bad-app
 
 </p>
 
@@ -187,6 +185,8 @@ kubectl --context kind-dev apply -f bad.yaml
 
 </p>
 
+Verify the deployment succeeded
+
 </p>
 
 ```
@@ -196,6 +196,7 @@ kubectl --context kind-dev get deployment,pod
 
 </p>
 
+Delete the bad-app deployment
 
 </p>
 
