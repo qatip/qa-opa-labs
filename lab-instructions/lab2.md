@@ -136,25 +136,7 @@ When the same workload is deployed again, it will be rejected by the cluster. Th
 
 
 
-</p>
 
-```bash
-kubectl --context kind-dev apply --server-side \
-  -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper/release-3.16/deploy/gatekeeper.yaml
-```
-
-</p>
-
-
-</p>
-
-```bash
-kubectl --context kind-dev get pods -n gatekeeper-system
-```
-
-</p>
-
-![3](../diagrams/3.png)
 
 ## Copy manifest files to gitop host
 
@@ -175,7 +157,29 @@ scp -i ~/.ssh/my-keypair.pem *.yaml ubuntu@gitop-pubic-ip:/home/ubuntu/
 
 ![5](../diagrams/5.png)
 
- 
+
+</p>
+
+```bash
+kubectl --context kind-dev apply --server-side \
+  -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper/release-3.16/deploy/gatekeeper.yaml
+```
+
+</p>
+
+
+</p>
+
+```bash
+kubectl --context kind-dev get pods -n gatekeeper-system
+```
+
+</p>
+
+![3](../diagrams/3.png)
+
+
+
 Cleanup (Optional)
 
 To remove the lab infrastructure when instructed:
