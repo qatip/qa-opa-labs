@@ -1,4 +1,4 @@
-Lab 2 – OPA with Kubernetes
+# Lab 2 – OPA with Kubernetes
 
 Lab Overview
 
