@@ -136,7 +136,7 @@ First, a non-compliant workload will be deployed successfully, demonstrating tha
 When the same workload deployment attempt is made, it will be rejected by the cluster, demonstrating how OPA enforces governance at the admission level, preventing non-compliant resources from being created.
 
 
-## Copy manifest files to gitop host
+## 3. Copy manifest files to gitop host
 
 Without closing your existing ssh session, open a new IDE terminal session using Ctrl+Shift+'
 
@@ -156,7 +156,7 @@ scp -i ~/.ssh/my-keypair.pem *.yaml ubuntu@gitop-pubic-ip:/home/ubuntu/
 ![5](../diagrams/5.png)
 
 
-## Test an Unvalidated deployment
+## 4. Test an Unvalidated deployment
 
 </p>
 
@@ -207,6 +207,8 @@ kubectl --context kind-dev delete deployment bad-app
 </p>
 
 
+## 5. Deploy Gatekeeper
+
 </p>
 
 ```bash
@@ -216,6 +218,7 @@ kubectl --context kind-dev apply --server-side \
 
 </p>
 
+Verify the deployment
 
 </p>
 
@@ -228,7 +231,7 @@ kubectl --context kind-dev get pods -n gatekeeper-system
 ![3](../diagrams/3.png)
 
 
-## Constraint Template and Constraint Overview
+## 6. Constraint Template and Constraint Overview
 
 Gatekeeper enforces policy through two key components: Constraint Templates and Constraints.
 
