@@ -186,6 +186,14 @@ if ! sudo -u ubuntu kubectl get crd awxs.awx.ansible.com --context kind-platform
     "github.com/ansible/awx-operator/config/default?ref=2.19.1" \
     -n awx \
     --context kind-platform
+
+  log "Pinning AWX Operator images..."
+  sudo -u ubuntu kubectl --context kind-platform -n awx set image deployment/awx-operator-controller-manager \
+    awx-manager=quay.io/ansible/awx-operator:2.19.1 \
+    kube-rbac-proxy=quay.io/brancz/kube-rbac-proxy:v0.15.0
+
+  log "Waiting for AWX Operator rollout..."
+  sudo -u ubuntu kubectl --context kind-platform -n awx rollout status deployment/awx-operator-controller-manager --timeout=180s || true
 else
   log "AWX Operator CRD already present."
 fi

@@ -122,6 +122,20 @@ kubectl --context kind-prod get nodes
 </p>
 
 Expected to see three nodes; platform-control-plane, dev-control-plane and prod-control-plane. All nodes should be Ready
+
+</p>
+
+```bash
+kubectl --context kind-dev apply --server-side \
+  -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper/release-3.16/deploy/gatekeeper.yaml
+```
+
+</p>
+
+
+
+
+
  
 Cleanup (Optional)
 
