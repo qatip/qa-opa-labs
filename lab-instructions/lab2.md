@@ -4,7 +4,8 @@
 
 # Lab Overview
 
-In this lab, you will use OPA Gatekeeper for governance of a Kubernetes cluster
+In this lab, you will use OPA Gatekeeper for governance of a Kubernetes cluster.
+
 Rather than manually building the kubernetes infrastructure, you will begin by deploying a pre-defined environment using Terraform. Having deployed the environment, you will then manually deploy and test OPA Gatekeeper against a Kubernetes cluster.
 
 # Lab Steps
