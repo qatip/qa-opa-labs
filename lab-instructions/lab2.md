@@ -180,11 +180,20 @@ Use ctrl+x to exit nano
 
 ```
 kubectl --context kind-dev apply -f bad.yaml
+
+```
+
+</p>
+
+</p>
+
+```
 kubectl --context kind-dev get deployment,pod
 
 ```
 
 </p>
+
 
 </p>
 
