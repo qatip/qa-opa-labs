@@ -149,20 +149,20 @@ kubectl --context kind-dev get pods -n gatekeeper-system
 
 Without closing the existing ssh session, open a new IDE terminal session using Ctrl+Shift+'
 
-Run the following, updating public-ip with your gitop host public ip
+Run the following, updating gitop-public-ip with your gitop host public ip
 
 </p>
 
 ```
 cd c:\qa-opa-labs\k8s-opa
-scp -i key.pem *.yaml ubuntu@public-ip:/home/ubuntu/
+scp -i ~/.ssh/my-keypair.pem *.yaml ubuntu@gitop-pubic-ip:/home/ubuntu/
 
 ```
 
 </p>
 
 
-
+![5](../diagrams/5.png)
 
  
 Cleanup (Optional)
