@@ -70,7 +70,15 @@ ssh -i C:\Users\YourUserName\.ssh\gitops-keypair.pem ubuntu@gitops-public-ip
 
 
 10.	Watch the log as the deployment progresses:
+
+</p>
+
+```bash
 sudo tail -n 200 /var/log/kind_install.log
+```
+
+</p>
+
 11.	You may have to wait for logging to commence. Re-run the above command periodically as the script progresses. Wait until you see the completion banner indicating the bootstrap finished …
  
 12.	Once completed, verify bootstrap status …
