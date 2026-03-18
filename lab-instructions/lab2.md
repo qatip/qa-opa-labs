@@ -133,6 +133,15 @@ kubectl --context kind-dev apply --server-side \
 </p>
 
 
+</p>
+
+```bash
+kubectl --context kind-dev get pods -n gatekeeper-system
+```
+
+</p>
+
+
 
 
 
