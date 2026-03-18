@@ -32,7 +32,7 @@ The automated build deploys virtual machines that allow remote connectivity usin
 3.	Key type: RSA. File format: .pem.
 4.	Name it "my-keypair" and download the PEM file.
 5.	Move the downloaded PEM file to your home directory .ssh folder
-6.	Fix permissions to prevent any OpenSSH issues...
+6.	Fix permissions to prevent any OpenSSH issues (update<YourUserName>)...
 <p>
 
 ```bash
