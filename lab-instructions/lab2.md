@@ -50,7 +50,7 @@ terraform apply --auto-approve
 
 </p>
 
-Terraform will output the public IPs (yours will differ from those shown) of two virtual machines, a GitOps host running Kubernetes, ArgoCD and AWX and an Automation host running Jenkins…
+Terraform will output the public IPs (yours will differ from those shown) of two virtual machines, a GitOps host running Kubernetes, ArgoCD and AWX and an Automation host running Jenkins. Note down the IP address assigned to your gitops_host vm as you will require it for later steps.
 
 ![1](../diagrams/1.png)
 
@@ -168,11 +168,11 @@ nano bad.yaml
 
 </p>
 
-Note that the manifest is lacking ownership and environment labels
+Note that the Deployment is lacking an environment label
 
 ![6](../diagrams/6.png)
 
-Use ctrl+x to exit nano
+Use Ctrl+x to exit nano
 
 Deploy bad-app
 
@@ -281,6 +281,8 @@ nano good.yaml
 
 </p>
 
+Use Ctrl+x to exit nano
+
 Apply the good manifest and verify success
 
 </p>
@@ -294,9 +296,26 @@ kubectl --context kind-dev apply -f good.yaml
 
 Apply the bad manifest and verify failure
 
+</p>
 
+```bash
+kubectl --context kind-dev apply -f bad.yaml
+```
 
-Update the bad manifest and retry
+</p>
+
+Use nano to edit bad.yaml, adding an evironment label at the Deployment level. Save changes using Ctrl+x, type 'Y' and press Enter
+
+Retest the deployment, it should now succeed:
+
+</p>
+
+```bash
+kubectl --context kind-dev apply -f bad.yaml
+```
+
+</p>
+
 
 ## 7. Challenge. Modify and test the Gatekeeper template  
 
