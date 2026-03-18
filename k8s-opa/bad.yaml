@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
       labels:
-        app: bad-app   # ❌ missing environment + owner
+        app: bad-app   # missing environment + owner
     spec:
       containers:
       - name: nginx

@@ -81,7 +81,7 @@ sudo tail -n 200 /var/log/kind_install.log
 
 You may have to wait for logging to commence. Re-run the above command periodically as the script progresses. 
 
-Wait until you see the completion banner indicating the bootstrap finished …
+Wait until you see the completion banner indicating the deployment has finished …
 
 ![2](../diagrams/2.png)
  
@@ -124,6 +124,17 @@ kubectl --context kind-prod get nodes
 Expected to see three nodes; platform-control-plane, dev-control-plane and prod-control-plane. All nodes should be Ready
 
 ![4](../diagrams/4.png)
+
+The base lab environment is now deployed, but without Kubernetes policy enforcement enabled in the development cluster.
+
+You will compare Kubernetes behaviour before and after policy enforcement is introduced.
+
+First, a non-compliant workload will be deployed successfully, demonstrating that the cluster accepts resources without validation. After removing the workload, Gatekeeper will be installed and a policy applied requiring mandatory labels.
+
+When the same workload is deployed again, it will be rejected by the cluster. This demonstrates how OPA enforces governance at the admission level, preventing non-compliant resources from being created.
+
+
+
 
 </p>
 
