@@ -1,0 +1,22 @@
+#cloud-config
+package_update: true
+package_upgrade: true
+
+write_files:
+  - path: /usr/local/sbin/install_gitops_kind.sh
+    owner: root:root
+    permissions: '0755'
+    encoding: b64
+    content: ${script_b64}
+
+runcmd:
+  # Run the main bootstrap script and capture full log
+  - [ bash, -lc, "/usr/local/sbin/install_gitops_kind.sh > /var/log/kind_install.log 2>&1" ]
+
+  # Option B: final human-readable summary into cloud-init output
+  - [ bash, -lc, "echo '=============================================='" ]
+  - [ bash, -lc, "echo ' GitOps host bootstrap COMPLETE'" ]
+  - [ bash, -lc, "echo ' Argo CD  : http://<gitops_host_public_ip>:30080'" ]
+  - [ bash, -lc, "echo ' AWX      : http://<gitops_host_public_ip>:30082'" ]
+  - [ bash, -lc, "echo ' Logs     : /var/log/kind_install.log'" ]
+  - [ bash, -lc, "echo '=============================================='" ]

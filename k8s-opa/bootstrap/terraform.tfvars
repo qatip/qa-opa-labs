@@ -1,0 +1,8 @@
+ssh_key_name      = "my-keypair"
+aws_region        = "eu-west-2"
+allowed_ssh_cidr  = "0.0.0.0/0"
+allowed_ui_cidr   = "0.0.0.0/0"
+size           = "large"
+project_name     = "gitops-lab"
+environment      = "training"
+argocd_admin_password = "Admin123!"

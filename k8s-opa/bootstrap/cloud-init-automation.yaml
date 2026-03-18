@@ -1,0 +1,31 @@
+#cloud-config
+package_update: true
+package_upgrade: true
+
+packages:
+  - fontconfig
+  - openjdk-21-jre
+  - curl
+  - gnupg
+  - lsb-release
+  - ca-certificates
+
+runcmd:
+  # Ensure keyrings dir exists
+  - mkdir -p /etc/apt/keyrings
+
+  # Add Jenkins repo key (official 2026 key)
+  - curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2026.key -o /etc/apt/keyrings/jenkins-keyring.asc
+
+  # Add Jenkins apt repo
+  - echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/" > /etc/apt/sources.list.d/jenkins.list
+
+  # Install Jenkins
+  - apt-get update
+  - apt-get install -y jenkins
+
+  # Enable + start Jenkins
+  - systemctl enable jenkins
+  - systemctl restart jenkins
+
+final_message: "cloud-init complete. Jenkins should be on port 8080."

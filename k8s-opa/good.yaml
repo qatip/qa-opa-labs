@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: good-app
+  labels:
+    app: good-app
+    environment: dev
+    owner: platform-team
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: good-app
+  template:
+    metadata:
+      labels:
+        app: good-app
+        environment: dev
+        owner: platform-team
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
