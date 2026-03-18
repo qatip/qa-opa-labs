@@ -92,7 +92,7 @@ kubectl config get-contexts
 
 </p>
 
-
+Expect to see three contexts; kind-dev, kind-platform and kind-prod
 
 14. Confirm nodes are Ready in each cluster
 
@@ -106,11 +106,8 @@ kubectl --context kind-prod get nodes
 
 </p>
 
-
-Expected: 
+Expected to see three nodes; platform-control-plane, dev-control-plane and prod-control-plane. All nodes should be Ready
  
-
-
 Cleanup (Optional)
 32.	To remove the lab infrastructure when instructed:
 terraform destroy --auto-approve
