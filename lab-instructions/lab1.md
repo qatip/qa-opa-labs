@@ -44,10 +44,14 @@ icacls C:\Users\<YourUserName>\.ssh\my-keypair.pem /grant:r "$($env:USERNAME):(R
 </p>
 </details
 
+<p>
+
 ```bash
 icacls C:\Users\<YourUserName>\.ssh\my-keypair.pem /inheritance:r
 icacls C:\Users\<YourUserName>\.ssh\my-keypair.pem /grant:r "$($env:USERNAME):(R)"
 ```
+
+</p>
 
 
 
