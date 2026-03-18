@@ -16,6 +16,9 @@ Rather than manually building the kubernetes infrastructure, you will deploy a p
 kubectl run simple --image=public.ecr.aws/qa-wfl/qa-wfl/qakf/sbe:v1
 ```
 
+</p>
+</details>
+
 
 
 Ensure you have cloned the class repo onto your IDE machine into c:\qa-opa-labs.
