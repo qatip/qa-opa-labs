@@ -158,6 +158,33 @@ scp -i ~/.ssh/my-keypair.pem *.yaml ubuntu@gitop-pubic-ip:/home/ubuntu/
 ![5](../diagrams/5.png)
 
 
+## Test an Unvalidated deployment
+
+</p>
+
+```
+nano bad.yaml
+
+```
+
+</p>
+
+note that the manifest is lacking ownership and environment details
+
+Use ctrl+x to exit nano
+
+
+</p>
+
+```
+kubectl --context kind-dev apply -f bad.yaml
+
+```
+
+</p>
+
+
+
 </p>
 
 ```bash
