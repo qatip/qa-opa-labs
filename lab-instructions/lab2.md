@@ -167,7 +167,7 @@ nano bad.yaml
 
 </p>
 
-note that the manifest is lacking ownership and environment labels
+Note that the manifest is lacking ownership and environment labels
 
 ![6](../diagrams/6.png)
 
@@ -227,6 +227,47 @@ kubectl --context kind-dev get pods -n gatekeeper-system
 
 ![3](../diagrams/3.png)
 
+
+## Constraint Template and Constraint Overview
+
+Gatekeeper enforces policy through two key components: Constraint Templates and Constraints.
+
+The Constraint Template defines the policy logic itself. It contains the Rego code used by OPA to evaluate Kubernetes resources. In this lab, the template defines a rule that checks whether specific labels are present on a resource.
+
+The Constraint is an instance of that template. It specifies how and where the policy should be applied within the cluster. In this case, the constraint applies the label-checking rule to Kubernetes workloads such as Deployments.
+
+What This Policy Is Doing: 
+
+For this lab, the policy enforces a simple but realistic governance rule: all workloads must include the labels app, environment and owner
+
+These labels are commonly used in real-world environments to support ownership tracking, cost allocation, and environment classification.
+
+If any of these labels are missing, the request to create or modify the resource will be denied at admission time.
+
+
+Apply the Constraint Template
+
+This command installs the policy logic into the cluster. At this stage, no enforcement occurs yet.
+
+</p>
+
+```bash
+kubectl --context kind-dev apply -f template.yaml
+```
+
+</p>
+
+Apply the Constraint
+
+This command activates the policy by applying it to the cluster. From this point onward, any workload that does not meet the defined requirements will be rejected.
+
+</p>
+
+```bash
+kubectl --context kind-dev apply -f constraint.yaml
+```
+
+</p>
 
 
 
