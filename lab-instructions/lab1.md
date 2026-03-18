@@ -1,10 +1,14 @@
 # Lab 2 – OPA with Kubernetes
 
-Lab Overview
+© 2026 QA Michael Coulling-Green
+
+## Lab Overview
 
 In this lab, you will use OPA as a Gatekeeper for a Kubernetes cluster
 Rather than manually building the kubernetes infrastructure, you will deploy a pre-defined environment. Having deployed the environment, you will deploy and test the OPA Gatekeeper against a development K8S cluster.
-Lab Steps
+
+# Lab Steps
+
 Ensure you have cloned the class repo onto your IDE machine into c:\qa-opa-labs.
 Instructions assume the repo is at c:\qa-opa-labs, adjust all paths as necessary 
 Create an EC2 Key Pair (Windows + PowerShell)
