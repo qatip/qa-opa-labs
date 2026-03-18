@@ -82,6 +82,13 @@ sudo kind get clusters
 
 Expected:
 
+dev
+
+platform
+
+prod
+
+
 
 13. Confirm kubectl contexts exist
 
