@@ -37,7 +37,7 @@ icacls C:\Users\YourUserName\.ssh\my-keypair.pem /grant:r "$($env:USERNAME):(R)"
 
 </p>
 
-7. Provision the remote environment using Terraform
+Provision the remote environment using Terraform
 <p>
 
 ```bash
@@ -48,12 +48,12 @@ terraform apply --auto-approve
 
 </p>
 
-8.	Terraform will output the public IP of two virtual machines, a GitOps host running K8S, ArgoCD and AWX and an Automation host running Jenkins…
+Terraform will output the public IP of two virtual machines, a GitOps host running K8S, ArgoCD and AWX and an Automation host running Jenkins…
 
 
 ## SSH to the GitOps Host and Verify Bootstrap
 
-9.	SSH from PowerShell, updating gitops-public-ip with that shown in output for GitOps host:
+SSH from PowerShell, updating gitops-public-ip with that shown in output for GitOps host:
 
 </p>
 
@@ -64,7 +64,7 @@ ssh -i ~/.ssh/my-keypair.pem ubuntu@gitops-public-ip
 </p>
 
 
-10.	Watch the log as the deployment progresses:
+Watch the log as the deployment progresses:
 
 </p>
 
@@ -74,9 +74,10 @@ sudo tail -n 200 /var/log/kind_install.log
 
 </p>
 
-11.	You may have to wait for logging to commence. Re-run the above command periodically as the script progresses. Wait until you see the completion banner indicating the bootstrap finished …
+You may have to wait for logging to commence. Re-run the above command periodically as the script progresses. 
+Wait until you see the completion banner indicating the bootstrap finished …
  
-12.	Once completed, confirm K8S clusters exist
+Once completed, confirm K8S clusters exist
 
 </p>
 
