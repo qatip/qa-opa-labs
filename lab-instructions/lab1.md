@@ -100,6 +100,15 @@ kubectl config get-contexts
 
 Expected: 
 
+CURRENT   NAME            CLUSTER         AUTHINFO        NAMESPACE
+
+          kind-dev        kind-dev        kind-dev
+
+          kind-platform   kind-platform   kind-platform
+
+*         kind-prod       kind-prod       kind-prod
+
+
 14. Confirm nodes are Ready in each cluster
 
 </p>
