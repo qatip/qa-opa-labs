@@ -56,7 +56,7 @@ terraform apply --auto-approve
 8.	Terraform will output the public IP of two virtual machines, a GitOps host running K8S, ArgoCD and AWX and an Automation host running Jenkins…
 
 
-SSH to the GitOps Host and Verify Bootstrap
+## SSH to the GitOps Host and Verify Bootstrap
 
 9.	SSH from PowerShell (update YourUserName and gitops-public-ip with that shown in output for GitOps host):
 
@@ -67,8 +67,6 @@ ssh -i C:\Users\YourUserName\.ssh\gitops-keypair.pem ubuntu@gitops-public-ip
 ```
 
 </p>
-
-
 
 
 10.	Watch the log as the deployment progresses:
@@ -92,10 +90,12 @@ Bootstrap note: your install script provisions Docker, kubectl, kind, the three 
 13.	Obtain and note the AWX admin password …
 nano awx-password.txt
 Use Ctrl+x to exit nano
+
 14.	Obtain and note the ArgoCD  admin password …
 nano argo-password.txt
 Use Ctrl+x to exit nano
 Verify Argo CD
+
 15.	Access Argo CD in your browser: http://<gitops_host_public_ip>:30080
 16.	Login using ‘admin’ and the password noted earlier.
 17.	Bookmark the ArgoCD url for future use and log out
