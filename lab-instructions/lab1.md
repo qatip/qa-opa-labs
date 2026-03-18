@@ -13,7 +13,9 @@ Rather than manually building the kubernetes infrastructure, you will deploy a p
 <p>
 
 ```bash
-kubectl run simple --image=public.ecr.aws/qa-wfl/qa-wfl/qakf/sbe:v1
+kubectl --context kind-platform get nodes
+kubectl --context kind-dev get nodes
+kubectl --context kind-prod get nodes
 ```
 
 </p>
