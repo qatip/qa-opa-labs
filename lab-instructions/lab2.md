@@ -52,6 +52,8 @@ terraform apply --auto-approve
 
 Terraform will output the public IP of two virtual machines, a GitOps host running K8S, ArgoCD and AWX and an Automation host running Jenkins…
 
+![Lab 4.1 final result](../diagrams/1.png)
+
 
 ## 2. SSH to the GitOps Host and Verify Bootstrap
 
