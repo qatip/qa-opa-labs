@@ -171,6 +171,8 @@ nano bad.yaml
 
 note that the manifest is lacking ownership and environment details
 
+![6](../diagrams/6.png)
+
 Use ctrl+x to exit nano
 
 
