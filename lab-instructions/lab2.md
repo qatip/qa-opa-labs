@@ -67,6 +67,7 @@ ssh -i ~/.ssh/my-keypair.pem ubuntu@gitops-public-ip
 
 </p>
 
+Enter 'yes' if prompted to add the unknown host
 
 Watch the log as the deployment progresses:
 
@@ -81,6 +82,8 @@ sudo tail -n 200 /var/log/kind_install.log
 You may have to wait for logging to commence. Re-run the above command periodically as the script progresses. 
 
 Wait until you see the completion banner indicating the bootstrap finished …
+
+![2](../diagrams/2.png)
  
 Once completed, confirm K8S clusters exist
 
