@@ -4,8 +4,8 @@
 
 # Lab Overview
 
-In this lab, you will use OPA as a Gatekeeper for a Kubernetes cluster
-Rather than manually building the kubernetes infrastructure, you will deploy a pre-defined environment. Having deployed the environment, you will deploy and test the OPA Gatekeeper against a development K8S cluster.
+In this lab, you will use OPA Gatekeeper for governance of a Kubernetes cluster
+Rather than manually building the kubernetes infrastructure, you will begin by deploying a pre-defined environment using Terraform. Having deployed the environment, you will then manually deploy and test OPA Gatekeeper against a Kubernetes cluster.
 
 # Lab Steps
 
@@ -25,9 +25,9 @@ Key type: RSA.
 
 File format: .pem.
 
-Name it "my-keypair" and download the PEM file.
+Name: "my-keypair" 
 
-Move the downloaded PEM file to the .ssh folder in your home directory, creating a new folder if none aready exists
+Download the PEM file and move it to the .ssh folder in your home directory, creating a new folder if none aready exists
 
 Fix permissions to prevent any possible OpenSSH issues (update with your user name)...
 <p>
@@ -50,12 +50,12 @@ terraform apply --auto-approve
 
 </p>
 
-Terraform will output the public IPs (yours will differ from those shown) of two virtual machines, a GitOps host running K8S, ArgoCD and AWX and an Automation host running Jenkins…
+Terraform will output the public IPs (yours will differ from those shown) of two virtual machines, a GitOps host running Kubernetes, ArgoCD and AWX and an Automation host running Jenkins…
 
 ![1](../diagrams/1.png)
 
 
-## 2. SSH to the GitOps Host and Verify Bootstrap
+## 2. SSH to the GitOps Host and Verify the Bootstrap succeeds
 
 SSH to the gitops vm, by copying the quoted command in the output or by using the command below, updating gitops-public-ip with that shown in your terraform output:
 
@@ -129,11 +129,11 @@ Expected to see three nodes; platform-control-plane, dev-control-plane and prod-
 
 The base lab environment is now deployed, but without Kubernetes policy enforcement enabled.
 
-Focussing on the development cluster, you will now compare Kubernetes behaviour before and after policy enforcement is introduced.
+Focussing on the Development cluster, you will now compare Kubernetes behaviour before and after policy enforcement is introduced.
 
 First, a non-compliant workload will be deployed successfully, demonstrating that the cluster accepts resources without validation. After removing the workload, OPA Gatekeeper will be installed and a policy applied requiring mandatory labels.
 
-When the same workload deployment attempt is made, it will be rejected by the cluster, demonstrating how OPA enforces governance at the admission level, preventing non-compliant resources from being created.
+When the same workload deployment attempt is made, it should be rejected by the cluster, demonstrating how OPA enforces governance at the admission level, preventing non-compliant resources from being created.
 
 
 ## 3. Copy Kubernetes manifest files to gitop host
