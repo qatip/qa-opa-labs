@@ -268,7 +268,7 @@ kubectl --context kind-dev apply -f constraint.yaml
 </p>
 
 
-## 6. Testing OPA Gatekeeper
+## 7. Testing OPA Gatekeeper
 
 First you will apply a manifest that complies with governance requirements.
 
@@ -330,14 +330,14 @@ kubectl --context kind-dev delete deployment bad-app
 
 </p>
 
-## 7. Challenge. Modify and test the Gatekeeper template  
+## 8. Challenge. Modify and test the Gatekeeper template  
 
 The Governance Team has mandated that resource ownership must also be included as part of Deployment labelling. Your task is to update the Gateway template.yaml to include a check for this label. Redeploy the template and verify it by attempting to deploy good-app and bad-app again. Both should fail the new governance check given that they lack ownership labelling. Update the two deployments with ownership labelling so that they can be successfully deloyed. 
 
 Tidy up by deleting any deployed resources.
 
 
-## 8. Lab Teardown
+## 9. Lab Teardown
 
 To remove the lab infrastructure, switch to your local terminal session and run...
 
