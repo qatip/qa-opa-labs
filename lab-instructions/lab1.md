@@ -7,7 +7,7 @@
 In this lab, you will use OPA as a Gatekeeper for a Kubernetes cluster
 Rather than manually building the kubernetes infrastructure, you will deploy a pre-defined environment. Having deployed the environment, you will deploy and test the OPA Gatekeeper against a development K8S cluster.
 
-## Lab Steps
+# Lab Steps
 
 <details><summary>show command</summary>
 <p>
@@ -24,7 +24,7 @@ Ensure you have cloned the class repo onto your IDE machine into c:\qa-opa-labs.
 
 Instructions assume the repo is at c:\qa-opa-labs, adjust all paths as necessary 
 
-# Create an EC2 Key Pair (Windows + PowerShell)
+## Create an EC2 Key Pair (Windows + PowerShell)
 
 The automated build deploys virtual machines that allow remote connectivity using a pem key. The key to be used must first be created and downloaded.
 1.	Log into the AWS console using your lab credentials
@@ -36,8 +36,8 @@ The automated build deploys virtual machines that allow remote connectivity usin
 <p>
 
 ```bash
-icacls C:\Users\<YourUserName>\.ssh\my-keypair.pem /inheritance:r
-icacls C:\Users\<YourUserName>\.ssh\my-keypair.pem /grant:r "$($env:USERNAME):(R)"
+icacls C:\Users\YourUserName\.ssh\my-keypair.pem /inheritance:r
+icacls C:\Users\YourUserName\.ssh\my-keypair.pem /grant:r "$($env:USERNAME):(R)"
 ```
 
 </p>
