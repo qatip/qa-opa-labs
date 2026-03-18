@@ -9,6 +9,15 @@ Rather than manually building the kubernetes infrastructure, you will deploy a p
 
 ## Lab Steps
 
+<details><summary>show command</summary>
+<p>
+
+```bash
+kubectl run simple --image=public.ecr.aws/qa-wfl/qa-wfl/qakf/sbe:v1
+```
+
+
+
 Ensure you have cloned the class repo onto your IDE machine into c:\qa-opa-labs.
 Instructions assume the repo is at c:\qa-opa-labs, adjust all paths as necessary 
 Create an EC2 Key Pair (Windows + PowerShell)
