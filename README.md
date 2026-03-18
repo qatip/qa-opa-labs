@@ -1,4 +1,4 @@
-# Azure Advanced Terraform Training Repository
+# QA Open Policy Agent Training Repository
 
 © 2026 QA Michael Coulling-Green
 
