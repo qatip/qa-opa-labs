@@ -236,18 +236,13 @@ The Constraint Template defines the policy logic itself. It contains the Rego co
 
 The Constraint is an instance of that template. It specifies how and where the policy should be applied within the cluster. In this case, the constraint applies the label-checking rule to Kubernetes workloads such as Deployments.
 
+Review your local copies of template.yaml and constraint.yaml in qa-opa-labs\k8s-opa 
+
 What This Policy Is Doing: 
 
-For this lab, the policy enforces a simple but realistic governance rule: all workloads must include the labels app, environment and owner
+For this lab, the policy enforces a simple but realistic governance rule: all workloads must include the labels app, environment and owner. These labels are commonly used in real-world environments to support ownership tracking, cost allocation, and environment classification. If any of these labels are missing, the request to create or modify the resource will be denied at admission time.
 
-These labels are commonly used in real-world environments to support ownership tracking, cost allocation, and environment classification.
-
-If any of these labels are missing, the request to create or modify the resource will be denied at admission time.
-
-
-Apply the Constraint Template
-
-This command installs the policy logic into the cluster. At this stage, no enforcement occurs yet.
+Apply the Constraint Template, thus installing the policy logic into the cluster. At this stage, no enforcement occurs yet.
 
 </p>
 
@@ -257,9 +252,7 @@ kubectl --context kind-dev apply -f template.yaml
 
 </p>
 
-Apply the Constraint
-
-This command activates the policy by applying it to the cluster. From this point onward, any workload that does not meet the defined requirements will be rejected.
+Apply the Constraint, thus activating the policy by applying it to the cluster. From this point onward, any workload that does not meet the defined requirements will be rejected.
 
 </p>
 
