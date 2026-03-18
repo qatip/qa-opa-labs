@@ -57,8 +57,20 @@ terraform apply --auto-approve
 
 
 SSH to the GitOps Host and Verify Bootstrap
-9.	SSH from PowerShell (replace IP with that shown in output for GitOps host):
-ssh -i C:\Users\<YourUserName>\.ssh\gitops-keypair.pem ubuntu@<public-ip>
+
+9.	SSH from PowerShell (update YourUserName and gitops-public-ip with that shown in output for GitOps host):
+
+</p>
+
+```bash
+ssh -i C:\Users\YourUserName\.ssh\gitops-keypair.pem ubuntu@gitops-public-ip
+```
+
+</p>
+
+
+
+
 10.	Watch the log as the deployment progresses:
 sudo tail -n 200 /var/log/kind_install.log
 11.	You may have to wait for logging to commence. Re-run the above command periodically as the script progresses. Wait until you see the completion banner indicating the bootstrap finished …
