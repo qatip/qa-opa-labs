@@ -11,28 +11,37 @@ Rather than manually building the kubernetes infrastructure, you will deploy a p
 
 <details><summary>show command</summary>
 <p>
-
 ```bash
-kubectl --context kind-platform get nodes
-kubectl --context kind-dev get nodes
-kubectl --context kind-prod get nodes
+test
 ```
-
 </p>
 </details>
 
 
-
 Ensure you have cloned the class repo onto your IDE machine into c:\qa-opa-labs.
+
 Instructions assume the repo is at c:\qa-opa-labs, adjust all paths as necessary 
-Create an EC2 Key Pair (Windows + PowerShell)
+
+# Create an EC2 Key Pair (Windows + PowerShell)
+
 The automated build deploys virtual machines that allow remote connectivity using a pem key. The key to be used must first be created and downloaded.
 1.	Log into the AWS console using your lab credentials
 2.	In AWS Console: EC2 → Key Pairs → Create key pair.
 3.	Key type: RSA. File format: .pem.
 4.	Name it "my-keypair" and download the PEM file.
 5.	Move the downloaded PEM file to your home directory .ssh folder
-6.	Fix permissions to prevent any OpenSSH issues:
+6.	Fix permissions to prevent any OpenSSH issues...
+<details><summary>show command</summary>
+<p>
+
+```bash
+icacls C:\Users\<YourUserName>\.ssh\my-keypair.pem /inheritance:r
+icacls C:\Users\<YourUserName>\.ssh\my-keypair.pem /grant:r "$($env:USERNAME):(R)"
+```
+
+</p>
+</details
+
 icacls C:\Users\<YourUserName>\.ssh\my-keypair.pem /inheritance:r
 icacls C:\Users\<YourUserName>\.ssh\my-keypair.pem /grant:r "$($env:USERNAME):(R)"
 Provision the remote environment using Terraform
