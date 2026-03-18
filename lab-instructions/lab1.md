@@ -1,5 +1,7 @@
 Lab 2 – OPA with Kubernetes
+
 Lab Overview
+
 In this lab, you will use OPA as a Gatekeeper for a Kubernetes cluster
 Rather than manually building the kubernetes infrastructure, you will deploy a pre-defined environment. Having deployed the environment, you will deploy and test the OPA Gatekeeper against a development K8S cluster.
 Lab Steps
