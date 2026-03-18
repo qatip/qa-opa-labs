@@ -21,7 +21,9 @@ Log into the AWS console using your lab credentials
 
 In AWS Console: EC2 → Key Pairs → Create key pair.
 
-Key type: RSA. File format: .pem.
+Key type: RSA. 
+
+File format: .pem.
 
 Name it "my-keypair" and download the PEM file.
 
@@ -53,7 +55,7 @@ Terraform will output the public IP of two virtual machines, a GitOps host runni
 
 ## 2. SSH to the GitOps Host and Verify Bootstrap
 
-SSH to the gitops vm, updating gitops-public-ip with that shown in output for GitOps host:
+SSH to the gitops vm, updating gitops-public-ip with that shown in the terraform output:
 
 </p>
 
