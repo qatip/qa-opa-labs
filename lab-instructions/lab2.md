@@ -16,7 +16,7 @@ Instructions assume the repo is at c:\qa-opa-labs, adjust all paths as necessary
 
 ## 1. Create and download an AWS EC2 Key Pair 
 
-The automated build deploys virtual machines that allow remote connectivity using a pem key. The key to be used must first be created and downloaded.
+The automated build deploys virtual machines that allow remote SSH connectivity using a pem key. The key to be used must first be created and downloaded.
 
 Log into the AWS console using your lab credentials
 
@@ -51,14 +51,14 @@ terraform apply --auto-approve
 
 </p>
 
-Terraform will output the public IPs (yours will differ from those shown) of two virtual machines, a GitOps host running Kubernetes, ArgoCD and AWX and an Automation host running Jenkins. Note down the IP address assigned to your gitops_host vm as you will require it for later steps.
+Terraform will output the public IPs (yours will differ from those shown) of two virtual machines, a GitOps host running Kubernetes, ArgoCD and AWX, and an Automation host running Jenkins. Note down the IP address assigned to your gitops_host vm as you will require it for later steps.
 
 ![1](../diagrams/1.png)
 
 
 ## 2. SSH to the GitOps Host and Verify the Bootstrap succeeds
 
-SSH to the gitops vm, by copying the quoted command in the output or by using the command below, updating gitops-public-ip with that shown in your terraform output:
+SSH to your gitops_host vm, either by copying the quoted command shown in your output or by using the command below, updating gitops-public-ip with that shown in your terraform output:
 
 </p>
 
@@ -82,13 +82,13 @@ sudo tail -n 200 /var/log/kind_install.log
 
 You may have to wait for logging to commence. Re-run the above command periodically as the script progresses. 
 
-Wait until you see the completion banner indicating the deployment has finished …
+Repeat until you see the completion banner indicating the deployment has finished …
 
 ![2](../diagrams/2.png)
  
-Three independent single-node Kubernetes clusters have been provisioned using Kind, representing development, platform, and production environments. Each cluster operates with its own isolated control plane, allowing governance and workload behaviour to be demonstrated independently across environments.
+Three independent single-node Kubernetes  clusters have been provisioned using Kind (Kubernetes-in-Docker), representing development, platform, and production environments. Each cluster operates with its own isolated control plane, allowing governance and workload behaviour to be demonstrated independently across environments.
 
-Once completed, confirm K8S clusters exist
+Once completed, confirm the Kubernetes clusters exist
 
 </p>
 
@@ -124,7 +124,7 @@ kubectl --context kind-prod get nodes
 
 </p>
 
-Expected to see three nodes; platform-control-plane, dev-control-plane and prod-control-plane. All nodes should be Ready
+Expected to see three nodes; platform-control-plane, dev-control-plane and prod-control-plane. All nodes should show as Ready
 
 ![4](../diagrams/4.png)
 
@@ -241,11 +241,11 @@ The Constraint Template defines the policy logic itself. It contains the Rego co
 
 The Constraint is an instance of that template. It specifies how and where the policy should be applied within the cluster. In this case, the constraint applies the label-checking rule to Kubernetes workloads such as Deployments.
 
-Review your local copies of template.yaml and constraint.yaml in qa-opa-labs\k8s-opa 
+Review your local copies of template.yaml and constraint.yaml in c:\qa-opa-labs\k8s-opa 
 
 What This Policy Is Doing: 
 
-For this lab, the policy enforces a simple but realistic governance rule: all workloads must include the labels app and environment. These labels are commonly used in real-world environments to support ownership tracking, cost allocation, and environment classification. If either of these labels are missing, the request to create or modify the resource will be denied at admission time.
+For this lab, the policy enforces a simple but realistic governance rule: all workloads must include the labels 'app' and 'environment'. These labels are commonly used in real-world environments to support cost allocation, and environment classification. If either of these labels are missing, the request to create or modify the resource will be denied at admission time.
 
 Apply the Constraint Template, thus installing the policy logic into the cluster. At this stage, no enforcement occurs yet.
 
@@ -290,6 +290,7 @@ Apply the good manifest and verify success
 
 ```bash
 kubectl --context kind-dev apply -f good.yaml
+kubectl --context kind-dev get deployment,pod
 ```
 
 </p>
@@ -313,21 +314,38 @@ Retest the deployment, it should now succeed:
 
 ```bash
 kubectl --context kind-dev apply -f bad.yaml
+kubectl --context kind-dev get deployment,pod
 ```
 
 </p>
 
+Clean up by deleting the good-app and bad-app deployments
+
+</p>
+
+```bash
+kubectl --context kind-dev delete deployment good-app
+kubectl --context kind-dev delete deployment bad-app
+```
+
+</p>
 
 ## 7. Challenge. Modify and test the Gatekeeper template  
 
+The Governance Team has mandated that resource ownership must also be included as part of Deployment labelling. Your task is to update the Gateway template.yaml to include a check for this label. Redeploy the template and verify it by attempting to deploy good-app and bad-app again. Both should fail the new governance check given that they lack ownership labelling. Update the two deployments with ownership labelling so that they can be successfully deloyed. 
+
+Tidy up by deleting any deployed resources.
 
 
+## 8. Lab Teardown
 
+To remove the lab infrastructure, switch to your local terminal session and run...
 
-Cleanup (Optional)
+</p>
 
-To remove the lab infrastructure when instructed:
-
+```bash
+cd c:\qa-opa-labs\k8s-opa\bootstrap
 terraform destroy --auto-approve
+```
+</p>
 
-Note: destroying the host will remove all kind clusters and installed controllers.
