@@ -141,7 +141,7 @@ kubectl --context kind-dev get pods -n gatekeeper-system
 
 </p>
 
-
+![3](../diagrams/3.png)
 
 
 
