@@ -33,25 +33,13 @@ The automated build deploys virtual machines that allow remote connectivity usin
 4.	Name it "my-keypair" and download the PEM file.
 5.	Move the downloaded PEM file to your home directory .ssh folder
 6.	Fix permissions to prevent any OpenSSH issues...
-<details><summary>show command</summary>
 <p>
-
 ```bash
 icacls C:\Users\<YourUserName>\.ssh\my-keypair.pem /inheritance:r
 icacls C:\Users\<YourUserName>\.ssh\my-keypair.pem /grant:r "$($env:USERNAME):(R)"
 ```
-
 </p>
-</details
 
-<p>
-
-```bash
-icacls C:\Users\<YourUserName>\.ssh\my-keypair.pem /inheritance:r
-icacls C:\Users\<YourUserName>\.ssh\my-keypair.pem /grant:r "$($env:USERNAME):(R)"
-```
-
-</p>
 
 
 
