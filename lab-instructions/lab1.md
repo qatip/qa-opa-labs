@@ -51,9 +51,9 @@ terraform apply --auto-approve
 Terraform will output the public IP of two virtual machines, a GitOps host running K8S, ArgoCD and AWX and an Automation host running Jenkins…
 
 
-## SSH to the GitOps Host and Verify Bootstrap
+## 2. SSH to the GitOps Host and Verify Bootstrap
 
-SSH from PowerShell, updating gitops-public-ip with that shown in output for GitOps host:
+SSH to the gitops vm, updating gitops-public-ip with that shown in output for GitOps host:
 
 </p>
 
@@ -75,6 +75,7 @@ sudo tail -n 200 /var/log/kind_install.log
 </p>
 
 You may have to wait for logging to commence. Re-run the above command periodically as the script progresses. 
+
 Wait until you see the completion banner indicating the bootstrap finished …
  
 Once completed, confirm K8S clusters exist
