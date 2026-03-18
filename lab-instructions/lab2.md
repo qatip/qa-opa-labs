@@ -48,8 +48,8 @@ Note: If using Cloud9 as your IDE:
 
 Cloud9 uses temporary credentials by default which do not have sufficient authorization to complete some upcoming steps. Navigate to Preferences, AWS Settings, Credentials and disable temporary credentials before following the instructions regarding 'aws configure'
 
-![C9-1](../diagrams/C9-1.png)
-![C9-2](../diagrams/C9-2.png)
+![11](../diagrams/C9-1.png)
+![12](../diagrams/C9-2.png)
 
 For All IDEs:
 
@@ -57,7 +57,7 @@ Use “aws configure” to supply explicit credentials, providing the Access Key
 Configure us-east-1 as your default region and leave default output format empty
 
 
-![C9-3](../diagrams/C9-3.png)
+![13](../diagrams/C9-3.png)
 
 
 OpProvision the remote environment using Terraform
