@@ -157,6 +157,7 @@ scp -i ~/.ssh/my-keypair.pem *.yaml ubuntu@gitop-pubic-ip:/home/ubuntu/
 
 
 ## 4. Test an Unvalidated deployment
+Switch back your SSH session terminal and then open bad.yaml
 
 </p>
 
@@ -243,7 +244,7 @@ Review your local copies of template.yaml and constraint.yaml in qa-opa-labs\k8s
 
 What This Policy Is Doing: 
 
-For this lab, the policy enforces a simple but realistic governance rule: all workloads must include the labels app, environment and owner. These labels are commonly used in real-world environments to support ownership tracking, cost allocation, and environment classification. If any of these labels are missing, the request to create or modify the resource will be denied at admission time.
+For this lab, the policy enforces a simple but realistic governance rule: all workloads must include the labels app and environment. These labels are commonly used in real-world environments to support ownership tracking, cost allocation, and environment classification. If either of these labels are missing, the request to create or modify the resource will be denied at admission time.
 
 Apply the Constraint Template, thus installing the policy logic into the cluster. At this stage, no enforcement occurs yet.
 
@@ -265,6 +266,39 @@ kubectl --context kind-dev apply -f constraint.yaml
 
 </p>
 
+
+## 6. Testing OPA Gatekeeper
+
+First you will apply a manifest that complies with governance requirements.
+
+Review good.yaml
+
+</p>
+
+```bash
+nano good.yaml
+```
+
+</p>
+
+Apply the good manifest and verify success
+
+</p>
+
+```bash
+kubectl --context kind-dev apply -f good.yaml
+```
+
+</p>
+
+
+Apply the bad manifest and verify failure
+
+
+
+Update the bad manifest and retry
+
+## 7. Challenge. Modify and test the Gatekeeper template  
 
 
 
