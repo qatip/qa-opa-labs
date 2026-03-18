@@ -80,13 +80,7 @@ sudo kind get clusters
 
 </p>
 
-Expected:
-
-dev
-
-platform
-
-prod
+Expect to see three clusters; dev, platform and prod
 
 13. Confirm kubectl contexts exist
 
@@ -98,15 +92,6 @@ kubectl config get-contexts
 
 </p>
 
-Expected: 
-
-CURRENT   NAME            CLUSTER         AUTHINFO        NAMESPACE
-
-          kind-dev        kind-dev        kind-dev
-
-          kind-platform   kind-platform   kind-platform
-
-*         kind-prod       kind-prod       kind-prod
 
 
 14. Confirm nodes are Ready in each cluster
