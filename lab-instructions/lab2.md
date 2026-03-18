@@ -92,7 +92,7 @@ sudo kind get clusters
 
 Expect to see three clusters; dev, platform and prod
 
-13. Confirm kubectl contexts exist
+Confirm kubectl contexts exist
 
 </p>
 
@@ -104,7 +104,7 @@ kubectl config get-contexts
 
 Expect to see three contexts; kind-dev, kind-platform and kind-prod
 
-14. Confirm nodes are Ready in each cluster
+Confirm nodes are Ready in each cluster
 
 </p>
 
@@ -119,6 +119,9 @@ kubectl --context kind-prod get nodes
 Expected to see three nodes; platform-control-plane, dev-control-plane and prod-control-plane. All nodes should be Ready
  
 Cleanup (Optional)
-32.	To remove the lab infrastructure when instructed:
+
+To remove the lab infrastructure when instructed:
+
 terraform destroy --auto-approve
+
 Note: destroying the host will remove all kind clusters and installed controllers.
