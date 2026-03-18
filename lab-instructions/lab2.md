@@ -127,14 +127,13 @@ Expected to see three nodes; platform-control-plane, dev-control-plane and prod-
 
 ![4](../diagrams/4.png)
 
-The base lab environment is now deployed, but without Kubernetes policy enforcement enabled in the development cluster.
+The base lab environment is now deployed, but without Kubernetes policy enforcement enabled.
 
-You will compare Kubernetes behaviour before and after policy enforcement is introduced.
+Focussing on the development cluster, you will now compare Kubernetes behaviour before and after policy enforcement is introduced.
 
-First, a non-compliant workload will be deployed successfully, demonstrating that the cluster accepts resources without validation. After removing the workload, Gatekeeper will be installed and a policy applied requiring mandatory labels.
+First, a non-compliant workload will be deployed successfully, demonstrating that the cluster accepts resources without validation. After removing the workload, OPA Gatekeeper will be installed and a policy applied requiring mandatory labels.
 
-When the same workload is deployed again, it will be rejected by the cluster. This demonstrates how OPA enforces governance at the admission level, preventing non-compliant resources from being created.
-
+When the same workload deployment attempt is made, it will be rejected by the cluster, demonstrating how OPA enforces governance at the admission level, preventing non-compliant resources from being created.
 
 
 ## Copy manifest files to gitop host
