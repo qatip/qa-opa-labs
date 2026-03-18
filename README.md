@@ -97,7 +97,7 @@ These materials may not be used to create derivative training courses or commerc
 
 ## Copyright
 
-Copyright © 2026 Michael Coulling-Green.  
+Copyright © 2026 QA Michael Coulling-Green.  
 All rights reserved.
 
 The materials contained in this repository are provided solely for use in authorised training courses.
