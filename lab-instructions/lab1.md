@@ -44,6 +44,13 @@ icacls C:\Users\<YourUserName>\.ssh\my-keypair.pem /grant:r "$($env:USERNAME):(R
 </p>
 </details
 
+```bash
+icacls C:\Users\<YourUserName>\.ssh\my-keypair.pem /inheritance:r
+icacls C:\Users\<YourUserName>\.ssh\my-keypair.pem /grant:r "$($env:USERNAME):(R)"
+```
+
+
+
 icacls C:\Users\<YourUserName>\.ssh\my-keypair.pem /inheritance:r
 icacls C:\Users\<YourUserName>\.ssh\my-keypair.pem /grant:r "$($env:USERNAME):(R)"
 Provision the remote environment using Terraform
