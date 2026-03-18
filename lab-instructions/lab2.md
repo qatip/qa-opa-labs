@@ -123,6 +123,8 @@ kubectl --context kind-prod get nodes
 
 Expected to see three nodes; platform-control-plane, dev-control-plane and prod-control-plane. All nodes should be Ready
 
+![4](../diagrams/4.png)
+
 </p>
 
 ```bash
