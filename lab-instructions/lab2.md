@@ -27,9 +27,9 @@ File format: .pem.
 
 Name it "my-keypair" and download the PEM file.
 
-Move the downloaded PEM file to your home directory .ssh folder
+Move the downloaded PEM file to the .ssh folder in your home directory, creating a new folder if none aready exists
 
-Fix permissions to prevent any OpenSSH issues (update with your user name)...
+Fix permissions to prevent any possible OpenSSH issues (update with your user name)...
 <p>
 
 ```bash
@@ -136,7 +136,7 @@ First, a non-compliant workload will be deployed successfully, demonstrating tha
 When the same workload deployment attempt is made, it will be rejected by the cluster, demonstrating how OPA enforces governance at the admission level, preventing non-compliant resources from being created.
 
 
-## 3. Copy manifest files to gitop host
+## 3. Copy Kubernetes manifest files to gitop host
 
 Without closing your existing ssh session, open a new IDE terminal session using Ctrl+Shift+'
 
