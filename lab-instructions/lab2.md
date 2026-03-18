@@ -169,7 +169,7 @@ nano bad.yaml
 
 </p>
 
-note that the manifest is lacking ownership and environment details
+note that the manifest is lacking ownership and environment labels
 
 ![6](../diagrams/6.png)
 
@@ -180,11 +180,20 @@ Use ctrl+x to exit nano
 
 ```
 kubectl --context kind-dev apply -f bad.yaml
+kubectl --context kind-dev get deployment,pod
 
 ```
 
 </p>
 
+</p>
+
+```
+kubectl --context kind-dev delete deployment bad-app
+
+```
+
+</p>
 
 
 </p>
