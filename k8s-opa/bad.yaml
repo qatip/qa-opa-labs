@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: bad-app
+  labels:
+    app: bad-app  #### Note that there is no environment label for this Deployment 
 spec:
   replicas: 1
   selector:
@@ -10,7 +12,7 @@ spec:
   template:
     metadata:
       labels:
-        app: bad-app   # environment label is absent
+        app: bad-app   
     spec:
       containers:
       - name: nginx
