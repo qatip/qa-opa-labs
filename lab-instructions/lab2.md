@@ -13,7 +13,7 @@ Ensure you have cloned the class repo onto your IDE machine into c:\qa-opa-labs.
 
 Instructions assume the repo is at c:\qa-opa-labs, adjust all paths as necessary 
 
-## 1. Create an EC2 Key Pair (Windows + PowerShell)
+## 1. Create and download an AWS EC2 Key Pair 
 
 The automated build deploys virtual machines that allow remote connectivity using a pem key. The key to be used must first be created and downloaded.
 
