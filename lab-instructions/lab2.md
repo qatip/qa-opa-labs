@@ -44,7 +44,7 @@ icacls C:\Users\YourUserName\.ssh\my-keypair.pem /grant:r "$($env:USERNAME):(R)"
 
 THIS ENTIRE SECTION CAN BE SKIPPED IF YOU HAVE ALREADY COMPLETED LAB 1
 
-Note: If using Cloud9 as your IDE: 
+If using Cloud9 as your IDE: 
 
 Cloud9 uses temporary credentials by default which do not have sufficient authorization to complete some upcoming steps. Navigate to Preferences, AWS Settings, Credentials and disable temporary credentials before following the instructions regarding 'aws configure'
 

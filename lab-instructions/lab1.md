@@ -64,7 +64,7 @@ In this lab, you will:
 
 ### Step 1. Configuring Access to AWS using Cloud9/Visual Studio Code 
 
-Note: If using Cloud9 as your IDE: 
+If using Cloud9 as your IDE: 
 
 Cloud9 uses temporary credentials by default which do not have sufficient authorization to complete some upcoming steps. Navigate to Preferences, AWS Settings, Credentials and disable temporary credentials before following the instructions regarding 'aws configure'
 
