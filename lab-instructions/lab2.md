@@ -54,7 +54,7 @@ Cloud9 uses temporary credentials by default which do not have sufficient author
 For All IDEs:
 
 Use “aws configure” to supply explicit credentials, providing the Access Key and Secret Access Key generated for your student account.
-Configure us-east-1 as your default region and leave default output format empty
+Leave Default region and Default output empty
 
 
 ![10](../diagrams/10.png)
