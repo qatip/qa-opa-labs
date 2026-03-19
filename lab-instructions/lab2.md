@@ -101,7 +101,7 @@ Key Takeaway: `Terraform ensures infrastructure can be created, it does not ensu
 
 ## Stage 2 – Apply OPA Policy Enforcement
 
-## Step 1 - Build the Policy
+### Step 1 - Build the Policy
 
 A skeleton `policy.rego` file has been provided in the root of `lab2`.
 
