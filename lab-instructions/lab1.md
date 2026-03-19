@@ -81,7 +81,7 @@ Open an IDE terminal session and use “aws configure” to supply explicit lab 
 
 ### Step 2 – Review the Terraform Configuration
 
-You are provided with a Terraform configuration that defines:
+You are provided with a Terraform configuration at c:\qa-opa-labs\tf-local-opa that defines:
 
 - An S3 bucket
 - A public access block configuration
@@ -91,7 +91,7 @@ At this stage, the configuration is valid and deployable.
 
 ---
 
-### Step 2 – Generate a Terraform Plan
+### Step 3 – Generate a Terraform Plan
 
 Run the following commands:
 
