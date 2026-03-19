@@ -72,9 +72,7 @@ Follow the instructions for your operating system below.
 
 ### Windows
 
-1. Open a browser and navigate to:
-
-https://openpolicyagent.org/docs/latest/#running-opa
+1. Open a browser and navigate to: https://openpolicyagent.org/docs/latest/#running-opa
 
 2. Download the Windows executable (`opa_windows_amd64.exe`)
 
