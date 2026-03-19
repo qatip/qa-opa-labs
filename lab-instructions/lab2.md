@@ -10,9 +10,7 @@ Rather than manually building the kubernetes infrastructure, you will begin by d
 
 # Lab Steps
 
-Ensure you have cloned the class repo onto your IDE machine into c:\qa-opa-labs.
-
-Instructions assume the repo is at c:\qa-opa-labs, adjust all paths as necessary 
+Ensure you have cloned the class repo onto your IDE machine into qa-opa-labs
 
 ## 1. Create and download an AWS EC2 Key Pair 
 
@@ -41,15 +39,12 @@ icacls C:\Users\YourUserName\.ssh\my-keypair.pem /inheritance:r
 icacls C:\Users\YourUserName\.ssh\my-keypair.pem /grant:r "$($env:USERNAME):(R)"
 ```
 
-
-<p>
-
+#### Linux / macOS
 ```bash
 icacls C:\Users\YourUserName\.ssh\my-keypair.pem /inheritance:r
 icacls C:\Users\YourUserName\.ssh\my-keypair.pem /grant:r "$($env:USERNAME):(R)"
 ```
 
-</p>
 
 ## 2. Accessing AWS using Cloud9/Visual Studio Code 
 
