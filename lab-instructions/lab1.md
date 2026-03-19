@@ -80,8 +80,8 @@ Follow the instructions for your operating system below.
 
 5. (Optional but recommended) Add this location to your system PATH:
 
-- Open **Environment Variables**
-- Edit the **Path** variable
+- Open Environment Variables
+- Edit the Path variable
 - Add: `C:\opa`
 
 6. Verify the installation:
