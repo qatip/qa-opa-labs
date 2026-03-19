@@ -6,7 +6,7 @@
 
 In this lab, you will deploy a simple AWS resource using Terraform and introduce policy enforcement using Open Policy Agent (OPA).
 
-Terraform is responsible for defining and provisioning infrastructure. However, it does not enforce organisational standards by default. OPA is used to evaluate Terraform plans and ensure they comply with defined rules before deployment.
+Terraform is responsible for defining and provisioning infrastructure. However, it does not enforce organisational standards by default. OPA is to be used to evaluate Terraform plans and ensure they comply with defined rules before deployment.
 
 ---
 
@@ -89,7 +89,7 @@ You are provided with a Terraform configuration at qa-opa-labs\tf-local-opa that
 
 At this stage, the configuration is valid and deployable.
 
-Open an IDE terminal session at qa-opalabs/tf-local-opa
+Open an IDE terminal session at qa-opa-labs\tf-local-opa
 
 Run the following commands:
 
