@@ -173,9 +173,10 @@ terraform show -json tfplan.binary > tfplan.json
 opa eval -f pretty -d policy -i tfplan.json "data.terraform.aws.deny"
 ```
 
-#### Key Takeaway
+### Key Takeaway
 
 Terraform tells us what will be built.
+
 OPA tells us whether it should be allowed.
 
 
