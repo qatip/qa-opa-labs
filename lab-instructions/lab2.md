@@ -41,8 +41,7 @@ icacls C:\Users\YourUserName\.ssh\my-keypair.pem /grant:r "$($env:USERNAME):(R)"
 
 #### Linux / macOS
 ```bash
-icacls C:\Users\YourUserName\.ssh\my-keypair.pem /inheritance:r
-icacls C:\Users\YourUserName\.ssh\my-keypair.pem /grant:r "$($env:USERNAME):(R)"
+chmod 400 ~/.ssh/my-keypair.pem
 ```
 
 
@@ -66,15 +65,12 @@ Open an IDE terminal session and use “aws configure” to supply explicit lab 
 
 
 ## 3. Provision the remote environment using Terraform
-<p>
 
 ```bash
 cd c:\qa-opa-labs\k8s-opa\bootstrap
 terraform init
 terraform apply --auto-approve
 ```
-
-</p>
 
 Terraform will output the public IPs (yours will differ from those shown) of two virtual machines, a GitOps host running Kubernetes, ArgoCD and AWX, and an Automation host running Jenkins. Note down the IP address assigned to your gitops_host vm as you will require it for later steps.
 
