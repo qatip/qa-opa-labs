@@ -62,7 +62,7 @@ In this lab, you will:
 
 ## Lab Steps
 
-### Step 1. Install Open Policy Agent (OPA)
+## Step 1. Install Open Policy Agent (OPA)
 
 OPA is not included in this repository and must be installed locally.
 
@@ -119,9 +119,7 @@ If the opa command is not recognised:
 - Confirm the file is executable using chmod 755
 
 
-
-
-### Step 1. Configuring Access to AWS using Cloud9/Visual Studio Code 
+## Step 2. Configuring Access to AWS using Cloud9/Visual Studio Code 
 
 If using Cloud9 as your IDE: 
 
@@ -138,7 +136,7 @@ Open an IDE terminal session and use “aws configure” to supply explicit lab 
 ![10](../diagrams/10.png)
 
 
-### Step 2 – Review the Terraform Configuration
+## Step 3 – Review the Terraform Configuration
 
 You are provided with a Terraform configuration at qa-opa-labs\tf-local-opa that defines:
 
@@ -164,7 +162,7 @@ Delete the bucket ahead of applying OPA governance controls
 terraform destroy --auto-approve
 ```
 
-### Step 3 - Review the OPA policy
+## Step 4 - Review the OPA policy
 
 Governance mandates that 
 
@@ -179,7 +177,7 @@ This policy ensures that any S3 bucket defined within a Terraform plan adheres t
 If any of these conditions are not met, OPA adds a message to the deny list. If the deny list is empty, the Terraform plan is considered compliant.
 
 
-### Step 4 – Convert a Terraform Plan to JSON and Evaluate with OPA
+## Step 5 – Convert a Terraform Plan to JSON and Evaluate with OPA
 
 ```bash
 terraform plan -out tfplan.binary
@@ -208,7 +206,7 @@ opa eval -f pretty -d policy -i tfplan.json "data.terraform.aws.deny"
 
 Expected outcome is [], indicating an empty deny list
 
-### Step 5 – Challenge
+## Step 6 – Challenge
 
 Corporate governance now demands that all resources also have an ownership tag.
 
@@ -239,8 +237,6 @@ test
 
 </p>
 </details>
-
-
 
 
 ### Key Lab Takeaway
