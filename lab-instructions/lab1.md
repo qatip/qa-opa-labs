@@ -139,13 +139,41 @@ Update qa-opa-labs\tf-local-opa\main.tf, setting all public access block setting
 
 ![14](../diagrams/14.png)
 
+Re-run the OPA policy to ensure compliance
 
+```bash
+terraform plan -out tfplan.binary
+terraform show -json tfplan.binary > tfplan.json
+opa eval -f pretty -d policy -i tfplan.json "data.terraform.aws.deny"
+```
 
-Remove the Owner tag and re-run the steps above.
+Expected outcome is [], indicating an empty deny list
 
-You should now see a policy violation.
+### Step 5 – Challenge
 
-Key Takeaway
+Corporate governance now demands that all resources also have an ownership tag.
+
+Update s3_guardrails.reg to reflect this change
+
+Run OPA policy to prove current non-compliance
+
+```bash
+terraform plan -out tfplan.binary
+terraform show -json tfplan.binary > tfplan.json
+opa eval -f pretty -d policy -i tfplan.json "data.terraform.aws.deny"
+```
+
+Update qa-opa-labs\tf-local-opa\terraform.tfvars to make this deployment compliant.
+
+Run OPA policy to prove compliance
+
+```bash
+terraform plan -out tfplan.binary
+terraform show -json tfplan.binary > tfplan.json
+opa eval -f pretty -d policy -i tfplan.json "data.terraform.aws.deny"
+```
+
+#### Key Takeaway
 
 Terraform tells us what will be built.
 OPA tells us whether it should be allowed.

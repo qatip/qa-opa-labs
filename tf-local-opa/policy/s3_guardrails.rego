@@ -1,6 +1,6 @@
 package terraform.aws
 
-required_tags := {"Environment", "Owner", "ManagedBy"}
+required_tags := {"Environment", "ManagedBy"}
 
 deny contains msg if {
   rc := input.resource_changes[_]
