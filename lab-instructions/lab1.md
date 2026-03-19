@@ -62,7 +62,24 @@ In this lab, you will:
 
 ## Lab Steps
 
-### Step 1 – Review the Terraform Configuration
+### Step 1. Configuring Access to AWS using Cloud9/Visual Studio Code 
+
+Note: If using Cloud9 as your IDE: 
+
+Cloud9 uses temporary credentials by default which do not have sufficient authorization to complete some upcoming steps. Navigate to Preferences, AWS Settings, Credentials and disable temporary credentials before following the instructions regarding 'aws configure'
+
+![12](../diagrams/12.png)
+![9](../diagrams/9.png)
+
+For All IDEs:
+
+Open an IDE terminal session and use “aws configure” to supply explicit lab credentials, providing the Access Key and Secret Access Key generated for your student account. Leave Default region and Default output empty
+
+
+![10](../diagrams/10.png)
+
+
+### Step 2 – Review the Terraform Configuration
 
 You are provided with a Terraform configuration that defines:
 
