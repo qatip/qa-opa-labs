@@ -31,6 +31,17 @@ Name: "my-keypair"
 Download the PEM file and move it to the .ssh folder in your home directory, creating a new folder if none aready exists
 
 Fix permissions to prevent any possible OpenSSH issues (update with your user name)...
+
+### Set Permissions on Your Private Key
+
+#### Windows
+
+```powershell
+icacls C:\Users\YourUserName\.ssh\my-keypair.pem /inheritance:r
+icacls C:\Users\YourUserName\.ssh\my-keypair.pem /grant:r "$($env:USERNAME):(R)"
+
+
+
 <p>
 
 ```bash
