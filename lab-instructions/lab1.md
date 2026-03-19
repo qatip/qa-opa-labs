@@ -78,13 +78,9 @@ https://openpolicyagent.org/docs/latest/#running-opa
 
 2. Download the Windows executable (`opa_windows_amd64.exe`)
 
-3. Rename the file to:
+3. Rename the file to: opa.exe
 
-opa.exe
-
-4. Move the file to a known location, for example:
-
-C:\opa\opa.exe
+4. Move the file to a known location, for example: C:\opa\opa.exe
 
 5. (Optional but recommended) Add this location to your system PATH:
 
