@@ -66,8 +66,9 @@ Open an IDE terminal session and use “aws configure” to supply explicit lab 
 
 ## 3. Provision the remote environment using Terraform
 
+In your terminal session, navigate to qa-opa-labs\k8s-opa\bootstrap and then run...
+
 ```bash
-cd c:\qa-opa-labs\k8s-opa\bootstrap
 terraform init
 terraform apply --auto-approve
 ```
