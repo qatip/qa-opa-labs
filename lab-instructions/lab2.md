@@ -34,10 +34,59 @@ All EC2 instances must comply with the following standards:
 
 ### Task
 
-1. Review the governance requirements above
-2. Review the Rego snippets in `policy-chunks/`
-3. Identify which snippets enforce the required controls
-4. Combine the correct snippets into a single file:
+1. Verify Terraform without governance
+2. Review the governance requirements above
+3. Review the Rego snippets in `policy-chunks/`
+4. Identify which snippets enforce the required controls
+5. Combine the correct snippets into a single file: policy.rego
+6. Verify Terraform with governance
 
-```text
-policy.rego
+
+## Lab Flow
+
+This lab is completed in two stages:
+
+### Stage 1 – Terraform Without Governance
+
+In this stage, you will run Terraform normally without any policy enforcement.
+
+Both the compliant and non-compliant configurations will successfully generate a plan.
+
+This demonstrates that Terraform validates infrastructure from a technical perspective only.
+
+---
+
+### Stage 2 – Terraform With OPA Policy Enforcement
+
+In this stage, you will apply an OPA policy to evaluate the Terraform plan.
+
+The compliant configuration will pass validation.
+
+The non-compliant configuration will fail validation.
+
+This demonstrates how OPA enforces organisational governance rules.
+
+## Stage 1 – Terraform Validation Only
+
+### Step 1 – Test the Compliant Configuration
+
+Navigate to the `good/` folder and run:
+
+```bash
+terraform init
+terraform plan
+```
+
+This plan should complete successfully
+
+### Step 2 – Test the Non-Compliant Configuration
+
+Navigate to the `bad/` folder and run:
+
+```bash
+terraform init
+terraform plan
+```
+
+The plan should also complete successfully.
+
