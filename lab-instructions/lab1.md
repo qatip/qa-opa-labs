@@ -62,6 +62,72 @@ In this lab, you will:
 
 ## Lab Steps
 
+### Step 1. Install Open Policy Agent (OPA)
+
+OPA is not included in this repository and must be installed locally.
+
+Follow the instructions for your operating system below.
+
+---
+
+### Windows
+
+1. Open a browser and navigate to:
+
+https://openpolicyagent.org/docs/latest/#running-opa
+
+2. Download the Windows executable (`opa_windows_amd64.exe`)
+
+3. Rename the file to:
+
+opa.exe
+
+4. Move the file to a known location, for example:
+
+C:\opa\opa.exe
+
+5. (Optional but recommended) Add this location to your system PATH:
+
+- Open **Environment Variables**
+- Edit the **Path** variable
+- Add: `C:\opa`
+
+6. Verify the installation:
+
+```powershell
+opa version
+
+Linux / macOS
+
+Run the following commands:
+
+curl -L -o opa https://openpolicyagent.org/downloads/latest/opa_linux_amd64
+chmod 755 opa
+sudo mv opa /usr/local/bin/opa
+
+Verify the installation:
+
+opa version
+Expected Output
+
+You should see version information similar to:
+
+Version: x.x.x
+Build Commit: ...
+Build Timestamp: ...
+Troubleshooting
+
+If the opa command is not recognised:
+
+Ensure the binary location is included in your PATH
+
+Restart your terminal after updating PATH
+
+On Linux/macOS, confirm the file is executable using chmod 755
+
+
+
+
 ### Step 1. Configuring Access to AWS using Cloud9/Visual Studio Code 
 
 If using Cloud9 as your IDE: 
