@@ -3,6 +3,5 @@ bucket_name = "opa-demo-mcg-2697-001"
 
 tags = {
   Environment = "dev"
-  Owner       = "Michael"
   ManagedBy   = "Terraform"
 }

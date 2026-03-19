@@ -133,7 +133,13 @@ Expected output:
 ![13](../diagrams/13.png)
 
 
-Step 4 – Fix the Configuration
+Fix the Configuration
+
+Update qa-opa-labs\tf-local-opa\main.tf, setting all public access block settings to true
+
+![14](../diagrams/14.png)
+
+
 
 Remove the Owner tag and re-run the steps above.
 
