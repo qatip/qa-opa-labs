@@ -173,7 +173,18 @@ terraform show -json tfplan.binary > tfplan.json
 opa eval -f pretty -d policy -i tfplan.json "data.terraform.aws.deny"
 ```
 
-### Key Takeaway
+<details><summary>show solution</summary>
+<p>
+
+test
+
+</p>
+</details>
+
+
+
+
+### Key Lab Takeaway
 
 Terraform tells us what will be built.
 
