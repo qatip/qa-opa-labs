@@ -84,14 +84,10 @@ Open an IDE terminal session and use “aws configure” to supply explicit lab 
 You are provided with a Terraform configuration at qa-opa-labs\tf-local-opa that defines:
 
 - An S3 bucket
-- A public access block configuration
+- A public access block configuration with no restrictions
 - A set of tags applied to the resource
 
 At this stage, the configuration is valid and deployable.
-
----
-
-### Step 3 – Generate a Terraform Plan
 
 Open an IDE terminal session at qa-opalabs/tf-local-opa
 
@@ -101,28 +97,39 @@ Run the following commands:
 terraform init
 terraform apply --auto-approvre
 ```
+Navigate to S3 in AWS and verify the bucket is created.
+
+Delete the bucket ahead of applying OPA governance controls
+
+```bash
+terraform destroy --auto-approvre
+```
+
+### Step3 - Review the OPA policy
+
+This policy ensures that any S3 bucket defined within a Terraform plan adheres to a defined organisational standard.
+
+For the purposes of this lab, bucket names must begin with the prefix opa-demo-, representing a simplified naming convention. In a real-world scenario, this would typically include elements such as project, environment, and region.
+
+The policy also enforces mandatory tagging for ownership and environment classification, and ensures that all buckets are securely configured to prevent public access by verifying that the following settings are all set to true:
+
+-block_public_acls
+-block_public_policy
+-ignore_public_acls
+-restrict_public_buckets
+
+If any of these conditions are not met, OPA adds a message to the deny list. If the deny list is empty, the Terraform plan is considered compliant.
 
 
-## Review the Policy File
-
-Navigate to the following file:
-
-qa-opa-labs\tf-local-opa\s3_guardrails.rego
-
-This file contains the OPA policy used to evaluate the Terraform plan.
-
-At a high level, the policy checks that:
+Governance mandates that 
 
 - S3 bucket names follow the required prefix (`opa-demo-`)
 - Required tags are present (`Environment`, `Owner`, `ManagedBy`)
-- A public access block resource is defined
-- All public access protection settings are enabled
-
-You do not need to understand the Rego syntax in detail at this stage. Focus on understanding what the policy is enforcing, as this will become clearer as you progress through the lab.
+- A public access block resource is defined and all public access protection settings are enabled
 
 
 
-TEST
+
 
 Step 2 – Convert the Plan to JSON
 terraform show -json tfplan.binary > tfplan.json
