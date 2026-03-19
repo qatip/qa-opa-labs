@@ -68,8 +68,6 @@ OPA is not included in this repository and must be installed locally.
 
 Follow the instructions for your operating system below.
 
----
-
 ### Windows
 
 1. Open a browser and navigate to: https://openpolicyagent.org/docs/latest/#running-opa
@@ -110,20 +108,15 @@ opa version
 
 Expected Output
 
-You should see version information similar to:
-
-Version: x.x.x
-Build Commit: ...
-Build Timestamp: ...
-Troubleshooting
+You should see version information similar to: Version: x.x.x ...
 
 If the opa command is not recognised:
 
-Ensure the binary location is included in your PATH
+- Ensure the binary location is included in your PATH
 
-Restart your terminal after updating PATH
+- Restart your terminal after updating PATH
 
-On Linux/macOS, confirm the file is executable using chmod 755
+- Confirm the file is executable using chmod 755
 
 
 
