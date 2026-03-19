@@ -93,8 +93,14 @@ At this stage, the configuration is valid and deployable.
 
 ### Step 3 – Generate a Terraform Plan
 
+Open an IDE terminal session at qa-opalabs/tf-local-opa
+
 Run the following commands:
 
 ```bash
 terraform init
 terraform plan -out tfplan.binary
+```
+
+TEST
+
