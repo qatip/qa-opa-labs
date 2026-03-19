@@ -92,17 +92,22 @@ Follow the instructions for your operating system below.
 opa version
 ```
 
-Linux / macOS
+### Linux / macOS
 
 Run the following commands:
 
+```bash
 curl -L -o opa https://openpolicyagent.org/downloads/latest/opa_linux_amd64
 chmod 755 opa
 sudo mv opa /usr/local/bin/opa
+```
 
 Verify the installation:
 
+```bash
 opa version
+```
+
 Expected Output
 
 You should see version information similar to:
