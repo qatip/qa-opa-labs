@@ -138,7 +138,7 @@ Open an IDE terminal session and use “aws configure” to supply explicit lab 
 
 ## Step 3 – Review the Terraform Configuration
 
-You are provided with a Terraform configuration at qa-opa-labs\tf-local-opa that defines:
+You are provided with a Terraform configuration at qa-opa-labs\lab1 that defines:
 
 - An S3 bucket
 - A public access block configuration with no restrictions
@@ -146,7 +146,7 @@ You are provided with a Terraform configuration at qa-opa-labs\tf-local-opa that
 
 At this stage, the configuration is valid and deployable.
 
-Open an IDE terminal session at qa-opa-labs\tf-local-opa
+Open an IDE terminal session at qa-opa-labs\lab1
 
 Run the following commands:
 
