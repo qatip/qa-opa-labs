@@ -119,6 +119,8 @@ If the opa command is not recognised:
 - Confirm the file is executable using chmod 755
 
 
+
+
 ## Step 2. Configuring Access to AWS using Cloud9/Visual Studio Code 
 
 If using Cloud9 as your IDE: 
