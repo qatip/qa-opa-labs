@@ -92,13 +92,82 @@ terraform plan
 
 The plan should also complete successfully.
 
-Key Observation
-
 Both configurations are technically valid from Terraform’s perspective.
 
 Terraform does not enforce organisational standards such as naming, tagging, or security policies.
 
 Key Takeaway: `Terraform ensures infrastructure can be created, it does not ensure infrastructure should be created`
+
+
+## Stage 2 – Apply OPA Policy Enforcement
+
+## Step 1 - Build the Policy
+
+A skeleton `policy.rego` file has been provided in the root of `lab2`.
+
+You are also provided with a set of Rego snippets in: lab2\policy-chunks\
+
+Your task is to select and combine the correct snippets to produce a working policy.
+
+Requirements:
+
+Your completed policy must enforce:
+
+- Approved instance types only (`t3.micro`, `t3.small`)
+- Required tags (`Owner`, `Environment`, `ManagedBy`)
+- No public IP address on instances
+
+Instructions:
+
+1. Review the snippets in `policy-chunks\`
+2. Identify which snippets enforce the required controls
+3. Copy the correct snippets into `policy.rego`
+4. Ignore any snippets that are incorrect or irrelevant
+
+
+Challenge:
+
+Not all snippets are valid.
+
+Some:
+- target the wrong resource
+- contain incorrect logic
+- enforce the wrong requirement
+
+Select carefully.
+
+### Step 2 – Validate your Policy
+
+Navigate to the `good/` folder and run:
+
+```bash
+terraform plan -out tfplan.binary
+terraform show -json tfplan.binary > tfplan.json
+
+Run OPA:
+
+opa eval -f pretty -d ../policy.rego -i tfplan.json "data.terraform.aws.deny"
+
+Expected result:
+
+[]
+
+Navigate to the `bad/` folder and run:
+
+```bash
+terraform plan -out tfplan.binary
+terraform show -json tfplan.binary > tfplan.json
+
+Run OPA:
+
+opa eval -f pretty -d ../policy.rego -i tfplan.json "data.terraform.aws.deny"
+
+Expected result:
+
+[]
+
+
+
 
 
 

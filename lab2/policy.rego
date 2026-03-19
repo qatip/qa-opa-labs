@@ -1,1 +1,3 @@
-## Populate this file with appropriate snippets
+package terraform.aws
+
+# Copy appropriate chunks below
