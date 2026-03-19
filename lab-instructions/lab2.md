@@ -143,14 +143,14 @@ Navigate to the `good/` folder and run:
 ```bash
 terraform plan -out tfplan.binary
 terraform show -json tfplan.binary > tfplan.json
+```
 
 Run OPA:
 
+```bash
 opa eval -f pretty -d ../policy.rego -i tfplan.json "data.terraform.aws.deny"
-
-Expected result:
-
-[]
+```
+Expected result: []
 
 Navigate to the `bad/` folder and run:
 
@@ -160,12 +160,27 @@ terraform show -json tfplan.binary > tfplan.json
 
 Run OPA:
 
+```bash
 opa eval -f pretty -d ../policy.rego -i tfplan.json "data.terraform.aws.deny"
+```
 
-Expected result:
+Expected result: ["One or more policy violations should be reported here"]
 
-[]
+Your exact output may differ depending on the snippets you selected, but the result should not be an empty list.
 
+Important:
+
+The policy.rego file is located in the root of lab2.
+
+When running OPA from within the good/ or bad/ folders, you must reference the policy file using a relative path: "-d ../policy.rego"
+
+If you do not specify the correct path, OPA will not be able to locate your policy.
+
+### Final Takeaway
+
+A Terraform plan can be technically valid and still be rejected.
+
+OPA enforces organisational standards by evaluating infrastructure before deployment.
 
 
 
