@@ -166,7 +166,6 @@ Run the following, updating gitop-public-ip with your gitop host public ip
 
 ```
 scp -i ~/.ssh/my-keypair.pem *.yaml ubuntu@gitop-pubic-ip:/home/ubuntu/
-
 ```
 
 </p>
