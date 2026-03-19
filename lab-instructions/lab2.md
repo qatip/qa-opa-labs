@@ -39,7 +39,7 @@ Fix permissions to prevent any possible OpenSSH issues (update with your user na
 ```powershell
 icacls C:\Users\YourUserName\.ssh\my-keypair.pem /inheritance:r
 icacls C:\Users\YourUserName\.ssh\my-keypair.pem /grant:r "$($env:USERNAME):(R)"
-
+```
 
 
 <p>
