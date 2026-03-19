@@ -150,7 +150,7 @@ Run OPA:
 ```bash
 opa eval -f pretty -d ../policy.rego -i tfplan.json "data.terraform.aws.deny"
 ```
-Expected result: []
+Expected result: `[]`
 
 Navigate to the `bad/` folder and run:
 
@@ -164,7 +164,7 @@ Run OPA:
 opa eval -f pretty -d ../policy.rego -i tfplan.json "data.terraform.aws.deny"
 ```
 
-Expected result: ["One or more policy violations should be reported here"]
+Expected result: `["One or more policy violations should be reported here"]`
 
 Your exact output may differ depending on the snippets you selected, but the result should not be an empty list.
 
