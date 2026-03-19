@@ -113,7 +113,7 @@ Governance mandates that
 - Required tags are present (`Environment`, `Owner`, `ManagedBy`)
 - A public access block resource is defined and all public access protection settings are enabled
 
-Review the s3_guardrails.rego policy file in qa-opa-labs\tf-local-opa\policy 
+Review the commented s3_guardrails.rego policy file in qa-opa-labs\lab1\policy 
 
 This policy ensures that any S3 bucket defined within a Terraform plan adheres to the stated governance requirements.
 
@@ -135,7 +135,7 @@ Expected output:
 
 Fix the Configuration
 
-Update qa-opa-labs\tf-local-opa\main.tf, setting all public access block settings to true
+Update qa-opa-labs\lab1\main.tf, setting all public access block settings to true
 
 ![14](../diagrams/14.png)
 
@@ -163,7 +163,7 @@ terraform show -json tfplan.binary > tfplan.json
 opa eval -f pretty -d policy -i tfplan.json "data.terraform.aws.deny"
 ```
 
-Update qa-opa-labs\tf-local-opa\terraform.tfvars to make this deployment compliant.
+Update qa-opa-labs\lab1\terraform.tfvars to make this deployment compliant.
 
 Run OPA policy to prove compliance
 

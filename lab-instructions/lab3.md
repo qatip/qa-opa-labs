@@ -1,4 +1,4 @@
-# Lab 2 – OPA with Kubernetes
+# Lab 3 – OPA with Kubernetes
 
 © 2026 QA Michael Coulling-Green
 
@@ -10,9 +10,7 @@ Rather than manually building the kubernetes infrastructure, you will begin by d
 
 # Lab Steps
 
-Ensure you have cloned the class repo onto your IDE machine into qa-opa-labs
-
-## 1. Create and download an AWS EC2 Key Pair 
+## Step 1. Create and download an AWS EC2 Key Pair 
 
 The automated build deploys virtual machines that allow remote SSH connectivity using a pem key. The key to be used must first be created and downloaded.
 
@@ -45,7 +43,7 @@ chmod 400 ~/.ssh/my-keypair.pem
 ```
 
 
-## 2. Accessing AWS using Cloud9/Visual Studio Code 
+## Step 2. Accessing AWS using Cloud9/Visual Studio Code 
 
 THIS ENTIRE SECTION CAN BE SKIPPED IF YOU HAVE ALREADY COMPLETED LAB 1
 
@@ -64,9 +62,9 @@ Open an IDE terminal session and use “aws configure” to supply explicit lab 
 ![10](../diagrams/10.png)
 
 
-## 3. Provision the remote environment using Terraform
+## Step 3. Provision the remote environment using Terraform
 
-In your terminal session, navigate to qa-opa-labs\k8s-opa\bootstrap and then run...
+In your terminal session, navigate to qa-opa-labs\lab3\bootstrap and then run...
 
 ```bash
 terraform init
@@ -159,7 +157,7 @@ When the same workload deployment attempt is made, it should be rejected by the 
 
 Without closing your existing ssh session, open a new IDE terminal session using Ctrl+Shift+'
 
-Navigate to qa-ops-labs\k8s-opa
+Navigate to qa-ops-labs\lab2
 
 Run the following, updating gitop-public-ip with your gitop host public ip
 
@@ -239,7 +237,7 @@ The Constraint Template defines the policy logic itself. It contains the Rego co
 
 The Constraint is an instance of that template. It specifies how and where the policy should be applied within the cluster. In this case, the constraint applies the label-checking rule to Kubernetes workloads such as Deployments.
 
-Review your local copies of template.yaml and constraint.yaml in c:\qa-opa-labs\k8s-opa 
+Review your local copies of template.yaml and constraint.yaml in c:\qa-opa-labs\lab3 
 
 What This Policy Is Doing: 
 
@@ -337,12 +335,13 @@ Tidy up by deleting any deployed resources.
 
 ## 11. Lab Teardown
 
-To remove the lab infrastructure, switch to your local terminal session and run...
+To remove the lab infrastructure, switch to your local terminal session
+
+Navigate to qa-opa-labs/lab3
 
 </p>
 
 ```bash
-cd c:\qa-opa-labs\k8s-opa\bootstrap
 terraform destroy --auto-approve
 ```
 </p>
