@@ -107,16 +107,18 @@ terraform destroy --auto-approve
 
 ### Step3 - Review the OPA policy
 
+Review the s3_guardrails.rego policy file in qa-opa-labs\tf-local-opa\policy 
+
 This policy ensures that any S3 bucket defined within a Terraform plan adheres to a defined organisational standard.
 
 For the purposes of this lab, bucket names must begin with the prefix opa-demo-, representing a simplified naming convention. In a real-world scenario, this would typically include elements such as project, environment, and region.
 
 The policy also enforces mandatory tagging for ownership and environment classification, and ensures that all buckets are securely configured to prevent public access by verifying that the following settings are all set to true:
 
--block_public_acls
--block_public_policy
--ignore_public_acls
--restrict_public_buckets
+- block_public_acls
+- block_public_policy
+- ignore_public_acls
+- restrict_public_buckets
 
 If any of these conditions are not met, OPA adds a message to the deny list. If the deny list is empty, the Terraform plan is considered compliant.
 
