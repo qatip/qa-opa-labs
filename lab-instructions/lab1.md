@@ -92,6 +92,7 @@ https://openpolicyagent.org/docs/latest/#running-opa
 
 ```powershell
 opa version
+```
 
 Linux / macOS
 
