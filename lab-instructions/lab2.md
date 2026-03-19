@@ -98,7 +98,7 @@ Both configurations are technically valid from Terraform’s perspective.
 
 Terraform does not enforce organisational standards such as naming, tagging, or security policies.
 
-Key Takeaway: 'Terraform ensures infrastructure can be created, it does not ensure infrastructure should be created'
+Key Takeaway: `Terraform ensures infrastructure can be created, it does not ensure infrastructure should be created`
 
 
 
