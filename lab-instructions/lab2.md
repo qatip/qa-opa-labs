@@ -1,5 +1,7 @@
 ## Lab 2 – Build an OPA Policy from Snippets
 
+© 2026 QA Michael Coulling-Green
+
 ### Overview
 
 In this lab, you will construct an OPA policy by selecting from a set of provided Rego snippets.
