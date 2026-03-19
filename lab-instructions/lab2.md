@@ -92,3 +92,19 @@ terraform plan
 
 The plan should also complete successfully.
 
+Key Observation
+
+Both configurations are technically valid from Terraform’s perspective.
+
+Terraform does not enforce organisational standards such as naming, tagging, or security policies.
+
+
+---
+
+## This line is gold (use it)
+
+```md
+Terraform ensures infrastructure can be created, it does not ensure infrastructure should be created.
+```
+
+
