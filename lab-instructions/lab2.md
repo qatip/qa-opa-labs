@@ -157,6 +157,7 @@ Navigate to the `bad/` folder and run:
 ```bash
 terraform plan -out tfplan.binary
 terraform show -json tfplan.binary > tfplan.json
+```
 
 Run OPA:
 
@@ -175,6 +176,8 @@ The policy.rego file is located in the root of lab2.
 When running OPA from within the good/ or bad/ folders, you must reference the policy file using a relative path: "-d ../policy.rego"
 
 If you do not specify the correct path, OPA will not be able to locate your policy.
+
+Note: A proposed solution rego file is at `qa-opa-labs\solution` Only use this is absolutely necessary
 
 ### Final Takeaway
 
