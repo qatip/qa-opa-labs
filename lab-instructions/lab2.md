@@ -60,7 +60,7 @@ Leave Default region and Default output empty
 ![10](../diagrams/10.png)
 
 
-OpProvision the remote environment using Terraform
+ Provision the remote environment using Terraform. Open an IDE terminal session and run ...
 <p>
 
 ```bash
