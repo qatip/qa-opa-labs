@@ -64,7 +64,7 @@ In this lab, you will:
 
 ## Step 1. Install Open Policy Agent (OPA)
 
-OPA is not included in this repository and must be installed locally.
+OPA is not included in this repository and must be installed into your student IDE environment (Cloud9/VSC).
 
 Follow the instructions for your operating system below.
 
