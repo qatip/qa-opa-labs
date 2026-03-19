@@ -136,15 +136,11 @@ Expect to see three contexts; kind-dev, kind-platform and kind-prod
 
 Confirm nodes are Ready in each cluster
 
-</p>
-
 ```bash
 kubectl --context kind-platform get nodes
 kubectl --context kind-dev get nodes
 kubectl --context kind-prod get nodes
 ```
-
-</p>
 
 Expected to see three nodes; platform-control-plane, dev-control-plane and prod-control-plane. All nodes should show as Ready
 
@@ -163,12 +159,12 @@ When the same workload deployment attempt is made, it should be rejected by the 
 
 Without closing your existing ssh session, open a new IDE terminal session using Ctrl+Shift+'
 
+Navigate to qa-ops-labs\k8s-opa
+
 Run the following, updating gitop-public-ip with your gitop host public ip
 
-</p>
 
 ```
-cd c:\qa-opa-labs\k8s-opa
 scp -i ~/.ssh/my-keypair.pem *.yaml ubuntu@gitop-pubic-ip:/home/ubuntu/
 
 ```
