@@ -122,8 +122,11 @@ If any of these conditions are not met, OPA adds a message to the deny list. If 
 
 ### Step 4 – Convert a Terraform Plan to JSON and Evaluate with OPA
 
+```bash
+terraform plan -out tfplan.binary
 terraform show -json tfplan.binary > tfplan.json
 opa eval -f pretty -d policy -i tfplan.json "data.terraform.aws.deny"
+```
 
 Expected output:
 
