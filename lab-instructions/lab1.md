@@ -130,11 +130,10 @@ opa eval -f pretty -d policy -i tfplan.json "data.terraform.aws.deny"
 
 Expected output:
 
-[]
+![13](../diagrams/13.png)
 
 
-
-Step 4 – Break the Policy
+Step 4 – Fix the Configuration
 
 Remove the Owner tag and re-run the steps above.
 
