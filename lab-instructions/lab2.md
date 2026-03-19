@@ -49,7 +49,7 @@ Note: If using Cloud9 as your IDE:
 Cloud9 uses temporary credentials by default which do not have sufficient authorization to complete some upcoming steps. Navigate to Preferences, AWS Settings, Credentials and disable temporary credentials before following the instructions regarding 'aws configure'
 
 ![8](../diagrams/8.png)
-![11](../diagrams/11.png)
+![9](../diagrams/9.png)
 
 For All IDEs:
 
