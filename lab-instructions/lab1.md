@@ -81,7 +81,7 @@ Open an IDE terminal session and use “aws configure” to supply explicit lab 
 
 ### Step 2 – Review the Terraform Configuration
 
-You are provided with a Terraform configuration at c:\qa-opa-labs\tf-local-opa that defines:
+You are provided with a Terraform configuration at qa-opa-labs\tf-local-opa that defines:
 
 - An S3 bucket
 - A public access block configuration
@@ -99,8 +99,48 @@ Run the following commands:
 
 ```bash
 terraform init
-terraform plan -out tfplan.binary
+terraform apply --auto-approvre
 ```
 
+
+## Review the Policy File
+
+Navigate to the following file:
+
+qa-opa-labs\tf-local-opa\s3_guardrails.rego
+
+This file contains the OPA policy used to evaluate the Terraform plan.
+
+At a high level, the policy checks that:
+
+- S3 bucket names follow the required prefix (`opa-demo-`)
+- Required tags are present (`Environment`, `Owner`, `ManagedBy`)
+- A public access block resource is defined
+- All public access protection settings are enabled
+
+You do not need to understand the Rego syntax in detail at this stage. Focus on understanding what the policy is enforcing, as this will become clearer as you progress through the lab.
+
+
+
 TEST
+
+Step 2 – Convert the Plan to JSON
+terraform show -json tfplan.binary > tfplan.json
+Step 3 – Evaluate with OPA
+opa eval -f pretty -d policy -i tfplan.json "data.terraform.aws.deny"
+
+Expected output:
+
+[]
+Step 4 – Break the Policy
+
+Remove the Owner tag and re-run the steps above.
+
+You should now see a policy violation.
+
+Key Takeaway
+
+Terraform tells us what will be built.
+OPA tells us whether it should be allowed.
+
 
