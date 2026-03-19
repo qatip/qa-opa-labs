@@ -95,14 +95,14 @@ Run the following commands:
 
 ```bash
 terraform init
-terraform apply --auto-approvre
+terraform apply --auto-approve
 ```
 Navigate to S3 in AWS and verify the bucket is created.
 
 Delete the bucket ahead of applying OPA governance controls
 
 ```bash
-terraform destroy --auto-approvre
+terraform destroy --auto-approve
 ```
 
 ### Step3 - Review the OPA policy
