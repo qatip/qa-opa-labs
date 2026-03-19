@@ -53,14 +53,13 @@ Cloud9 uses temporary credentials by default which do not have sufficient author
 
 For All IDEs:
 
-Use “aws configure” to supply explicit credentials, providing the Access Key and Secret Access Key generated for your student account.
-Leave Default region and Default output empty
+Open an IDE terminal session and Use “aws configure” to supply explicit credentials, providing the Access Key and Secret Access Key generated for your student account. Leave Default region and Default output empty
 
 
 ![10](../diagrams/10.png)
 
 
- Provision the remote environment using Terraform. Open an IDE terminal session and run ...
+ Provision the remote environment using Terraform...
 <p>
 
 ```bash
