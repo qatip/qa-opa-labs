@@ -177,14 +177,10 @@ scp -i ~/.ssh/my-keypair.pem *.yaml ubuntu@gitop-pubic-ip:/home/ubuntu/
 ## 6. Test an Unvalidated deployment
 Switch back your SSH session terminal and then open bad.yaml
 
-</p>
 
 ```
 nano bad.yaml
-
 ```
-
-</p>
 
 Note that the Deployment is lacking an environment label
 
@@ -194,36 +190,21 @@ Use Ctrl+x to exit nano
 
 Deploy bad-app
 
-</p>
-
 ```
 kubectl --context kind-dev apply -f bad.yaml
-
 ```
-
-</p>
 
 Verify the deployment succeeded
 
-</p>
-
 ```
 kubectl --context kind-dev get deployment,pod
-
 ```
-
-</p>
 
 Delete the bad-app deployment
 
-</p>
-
 ```
 kubectl --context kind-dev delete deployment bad-app
-
 ```
-
-</p>
 
 
 ## 7. Deploy Gatekeeper
