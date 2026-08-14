@@ -153,7 +153,7 @@ Open an IDE terminal session at qa-opa-labs\lab1
 Run the following commands:
 
 ```bash
-cd c:\qa-opa-labs
+cd c:\qa-opa-labs\lab1
 terraform init
 terraform apply --auto-approve
 ```
