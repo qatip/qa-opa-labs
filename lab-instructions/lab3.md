@@ -157,7 +157,7 @@ When the same workload deployment attempt is made, it should be rejected by the 
 
 Without closing your existing ssh session, open a new IDE terminal session using Ctrl+Shift+'
 
-Navigate to qa-ops-labs\lab2
+Navigate to qa-ops-labs\lab3
 
 Run the following, updating gitop-public-ip with your gitop host public ip
 
