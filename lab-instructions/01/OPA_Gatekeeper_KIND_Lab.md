@@ -71,7 +71,7 @@ Proceed when Docker can reach a Linux engine, kind version reports v0.33.0, and 
 ### Open the supplied files
 
 ```powershell
-Set-Location C:\OPA\KIND-Lab\support
+Set-Location C:\qa-opa-labs\labs\01
 Get-ChildItem
 $ctx = 'kind-opa-demo'
 $env:KIND_EXPERIMENTAL_PROVIDER = 'docker'
