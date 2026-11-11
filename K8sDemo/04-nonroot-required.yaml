@@ -1,0 +1,12 @@
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sDemoNonRoot
+metadata:
+  name: pods-must-run-as-nonroot
+spec:
+  enforcementAction: deny
+  match:
+    namespaces:
+      - opa-demo
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Pod"]

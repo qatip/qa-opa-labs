@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: before-policy
+  namespace: opa-demo
+  labels:
+    run: before-policy
+spec:
+  restartPolicy: Never
+  containers:
+    - name: before-policy
+      image: nginx:stable

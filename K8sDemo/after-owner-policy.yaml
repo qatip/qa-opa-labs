@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: after-policy
+  namespace: opa-demo
+  labels:
+    run: after-policy
+    owner: michael
+spec:
+  restartPolicy: Never
+  containers:
+    - name: after-policy
+      image: nginx:stable
+
+      

@@ -1,0 +1,20 @@
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sDemoRequiredLabels
+metadata:
+  name: pods-must-have-owner
+spec:
+  enforcementAction: deny
+  match:
+    namespaces:
+      - opa-demo
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Pod"]
+  parameters:
+    labels:
+      - owner
+
+
+
+
+
