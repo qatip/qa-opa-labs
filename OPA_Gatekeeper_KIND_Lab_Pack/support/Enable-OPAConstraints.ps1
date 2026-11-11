@@ -1,19 +1,19 @@
 <#
 .SYNOPSIS
-Disable blocking for the owner and/or non-root Gatekeeper constraints.
+Enable blocking for the owner and/or non-root Gatekeeper constraints.
 .DESCRIPTION
-Sets Gatekeeper enforcementAction to dryrun for the Owner and/or NonRoot demo
+Sets Gatekeeper enforcementAction to deny for the Owner and/or NonRoot demo
 constraints. Gatekeeper keeps running. Only these named constraints are changed.
 All selected constraints are checked before any changes are applied.
 If the matching YAML exists, its enforcementAction is updated after a successful
 cluster patch. Other YAML content is preserved. Missing YAML does not prevent a
 cluster update and is reported explicitly.
 .EXAMPLE
-.\Disable-OPAConstraints.ps1
+.\Enable-OPAConstraints.ps1
 .EXAMPLE
-.\Disable-OPAConstraints.ps1 -Constraint Owner
+.\Enable-OPAConstraints.ps1 -Constraint Owner
 .EXAMPLE
-.\Disable-OPAConstraints.ps1 -Constraint NonRoot
+.\Enable-OPAConstraints.ps1 -Constraint NonRoot
 #>
 [CmdletBinding()]
 param(
@@ -21,7 +21,7 @@ param(
     [string]$Constraint = 'Both',
 
     [ValidateNotNullOrEmpty()]
-    [string]$Context = 'docker-desktop',
+    [string]$Context = 'kind-opa-demo',
 
     [ValidateNotNullOrEmpty()]
     [string]$ManifestDirectory = $PSScriptRoot
@@ -29,7 +29,7 @@ param(
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
-$mode = 'dryrun'
+$mode = 'deny'
 $kubectlExe = (Get-Command kubectl -CommandType Application -ErrorAction Stop |
     Select-Object -First 1).Source
 $utf8 = New-Object System.Text.UTF8Encoding($false)
@@ -110,4 +110,4 @@ try {
 }
 
 Write-Host 'Configured. Allow Gatekeeper controllers to reconcile before testing new Pods.'
-Write-Host 'Matching requests are allowed by these rules; violations remain available through audit.'
+Write-Host 'Matching policy violations will be rejected. Existing Pods are not removed.'
