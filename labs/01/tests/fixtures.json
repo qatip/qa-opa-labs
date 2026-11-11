@@ -1,0 +1,275 @@
+{
+  "fixtures": {
+    "owner_missing": {
+      "review": {
+        "object": {
+          "apiVersion": "v1",
+          "kind": "Pod",
+          "metadata": {
+            "name": "before-policy",
+            "namespace": "opa-demo",
+            "labels": {
+              "run": "before-policy"
+            }
+          },
+          "spec": {
+            "restartPolicy": "Never",
+            "containers": [
+              {
+                "name": "before-policy",
+                "image": "nginxinc/nginx-unprivileged:stable",
+                "ports": [
+                  {
+                    "containerPort": 8080
+                  }
+                ]
+              }
+            ],
+            "securityContext": {
+              "runAsNonRoot": true,
+              "runAsUser": 101,
+              "runAsGroup": 101
+            }
+          }
+        }
+      },
+      "parameters": {
+        "labels": [
+          "owner"
+        ]
+      }
+    },
+    "owner_present": {
+      "review": {
+        "object": {
+          "apiVersion": "v1",
+          "kind": "Pod",
+          "metadata": {
+            "name": "after-policy",
+            "namespace": "opa-demo",
+            "labels": {
+              "run": "after-policy",
+              "owner": "michael"
+            }
+          },
+          "spec": {
+            "restartPolicy": "Never",
+            "containers": [
+              {
+                "name": "after-policy",
+                "image": "nginxinc/nginx-unprivileged:stable",
+                "ports": [
+                  {
+                    "containerPort": 8080
+                  }
+                ]
+              }
+            ],
+            "securityContext": {
+              "runAsNonRoot": true,
+              "runAsUser": 101,
+              "runAsGroup": 101
+            }
+          }
+        }
+      },
+      "parameters": {
+        "labels": [
+          "owner"
+        ]
+      }
+    },
+    "nginx_root": {
+      "review": {
+        "object": {
+          "apiVersion": "v1",
+          "kind": "Pod",
+          "metadata": {
+            "name": "nginx-root",
+            "namespace": "opa-demo",
+            "labels": {
+              "owner": "michael"
+            }
+          },
+          "spec": {
+            "restartPolicy": "Never",
+            "securityContext": {
+              "runAsNonRoot": false,
+              "runAsUser": 0,
+              "runAsGroup": 0
+            },
+            "containers": [
+              {
+                "name": "nginx",
+                "image": "nginx:stable",
+                "ports": [
+                  {
+                    "containerPort": 80
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "parameters": {}
+    },
+    "nginx_nonroot": {
+      "review": {
+        "object": {
+          "apiVersion": "v1",
+          "kind": "Pod",
+          "metadata": {
+            "name": "nginx-nonroot",
+            "namespace": "opa-demo",
+            "labels": {
+              "owner": "michael"
+            }
+          },
+          "spec": {
+            "restartPolicy": "Never",
+            "securityContext": {
+              "runAsNonRoot": true,
+              "runAsUser": 101,
+              "runAsGroup": 101
+            },
+            "containers": [
+              {
+                "name": "nginx",
+                "image": "nginxinc/nginx-unprivileged:stable",
+                "ports": [
+                  {
+                    "containerPort": 8080
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "parameters": {}
+    },
+    "owner_empty": {
+      "review": {
+        "object": {
+          "apiVersion": "v1",
+          "kind": "Pod",
+          "metadata": {
+            "name": "after-policy",
+            "namespace": "opa-demo",
+            "labels": {
+              "run": "after-policy",
+              "owner": ""
+            }
+          },
+          "spec": {
+            "restartPolicy": "Never",
+            "containers": [
+              {
+                "name": "after-policy",
+                "image": "nginxinc/nginx-unprivileged:stable",
+                "ports": [
+                  {
+                    "containerPort": 8080
+                  }
+                ]
+              }
+            ],
+            "securityContext": {
+              "runAsNonRoot": true,
+              "runAsUser": 101,
+              "runAsGroup": 101
+            }
+          }
+        }
+      },
+      "parameters": {
+        "labels": [
+          "owner"
+        ]
+      }
+    },
+    "override_root": {
+      "review": {
+        "object": {
+          "apiVersion": "v1",
+          "kind": "Pod",
+          "metadata": {
+            "name": "nginx-nonroot",
+            "namespace": "opa-demo",
+            "labels": {
+              "owner": "michael"
+            }
+          },
+          "spec": {
+            "restartPolicy": "Never",
+            "securityContext": {
+              "runAsNonRoot": true,
+              "runAsUser": 101,
+              "runAsGroup": 101
+            },
+            "containers": [
+              {
+                "name": "nginx",
+                "image": "nginxinc/nginx-unprivileged:stable",
+                "ports": [
+                  {
+                    "containerPort": 8080
+                  }
+                ],
+                "securityContext": {
+                  "runAsUser": 0
+                }
+              }
+            ]
+          }
+        }
+      },
+      "parameters": {}
+    },
+    "init_root": {
+      "review": {
+        "object": {
+          "apiVersion": "v1",
+          "kind": "Pod",
+          "metadata": {
+            "name": "nginx-nonroot",
+            "namespace": "opa-demo",
+            "labels": {
+              "owner": "michael"
+            }
+          },
+          "spec": {
+            "restartPolicy": "Never",
+            "securityContext": {
+              "runAsNonRoot": true,
+              "runAsUser": 101,
+              "runAsGroup": 101
+            },
+            "containers": [
+              {
+                "name": "nginx",
+                "image": "nginxinc/nginx-unprivileged:stable",
+                "ports": [
+                  {
+                    "containerPort": 8080
+                  }
+                ]
+              }
+            ],
+            "initContainers": [
+              {
+                "name": "init",
+                "image": "busybox",
+                "securityContext": {
+                  "runAsUser": 0
+                }
+              }
+            ]
+          }
+        }
+      },
+      "parameters": {}
+    }
+  }
+}

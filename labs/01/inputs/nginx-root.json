@@ -1,0 +1,35 @@
+{
+  "review": {
+    "object": {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "nginx-root",
+        "namespace": "opa-demo",
+        "labels": {
+          "owner": "michael"
+        }
+      },
+      "spec": {
+        "restartPolicy": "Never",
+        "securityContext": {
+          "runAsNonRoot": false,
+          "runAsUser": 0,
+          "runAsGroup": 0
+        },
+        "containers": [
+          {
+            "name": "nginx",
+            "image": "nginx:stable",
+            "ports": [
+              {
+                "containerPort": 80
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parameters": {}
+}

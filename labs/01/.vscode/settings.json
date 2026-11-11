@@ -1,0 +1,5 @@
+{
+  "opa.dependency_paths.opa": "${workspaceFolder}/tools/opa.exe",
+  "opa.strictMode": true,
+  "opa.checkOnSave": true
+}
